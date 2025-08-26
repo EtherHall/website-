@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AION Launch Countdown</title>  <!-- MailerLite Universal -->  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1757758');
+  </script>  <!-- End MailerLite Universal -->  <style>
+    :root{
+      --bg:#050507;
+      --fg:#eaeaf0;
+      --muted:#a2a7b3;
+      --accent:#7c3aed;
+      --accent-2:#22d3ee;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; min-height:100svh; display:grid; place-items:center;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(1000px 600px at 120% 120%, rgba(34,211,238,.18), transparent 60%),
+        var(--bg);
+      color:var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      padding:2rem;
+    }
+    .wrap{
+      width:min(980px, 100%);
+      padding:2rem; border-radius:24px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.04);
+      text-align:center;
+    }
+    .logo{
+      width: clamp(220px, 40vw, 480px);
+      max-width: 100%;
+      height:auto; margin:0 auto 1.25rem;
+      filter: drop-shadow(0 0 16px rgba(124,58,237,.35));
+      display:block;
+    }
+    h1{margin:.25rem 0 .5rem; font-size:clamp(2rem, 2.6rem + 1vw, 3.2rem); line-height:1.1; letter-spacing:.02em}
+    .subtitle{color:var(--muted); margin-bottom:1rem}
+    .countdown{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:clamp(1.1rem, 1rem + .9vw, 1.8rem);
+      margin:1rem 0 1.5rem; color:#fff;
+      text-shadow:0 0 12px rgba(124,58,237,.55);
+    }
+    .discord-button{
+      margin-top:1.25rem; background:#5865F2; color:#fff; border:none;
+      padding:1rem 1.5rem; border-radius:999px; cursor:pointer; font-weight:700;
+    }
+    .note{margin-top:.5rem; color:var(--muted); font-size:.9rem}
+    .ml-embedded{margin-top:1.5rem}
+  </style></head>
+<body>
+  <main class="wrap">
+    <img src="AION EtherHall Fusion.png" alt="AION Logo" class="logo" /><h1>AION: Artificially Intelligent Operating Nexus</h1>
+<p class="subtitle">Kickstarting January 1, 2026</p>
+
+<div class="countdown" id="countdown" aria-live="polite"></div>
+
+<!-- MailerLite Embedded Form -->
+<div class="ml-embedded" data-form="PdGm9p"></div>
+
+<a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener noreferrer" id="discordLink">
+  <button class="discord-button">Join the Discord</button>
+</a>
+<div class="note" id="discordNote"></div>
+
+  </main>  <script>
+    // Countdown to Jan 1, 2026
+    function updateCountdown(){
+      const target = new Date("2026-01-01T00:00:00");
+      const now = new Date();
+      const dist = target - now;
+      const el = document.getElementById('countdown');
+      if (dist <= 0) { el.textContent = 'Launched'; return; }
+      const d = Math.floor(dist / (1000*60*60*24));
+      const h = Math.floor((dist / (1000*60*60)) % 24);
+      const m = Math.floor((dist / (1000*60)) % 60);
+      const s = Math.floor((dist / 1000) % 60);
+      el.textContent = `${d}d ${h}h ${m}m ${s}s`;
+    }
+    setInterval(updateCountdown, 1000); updateCountdown();
+
+    // Discord invite soft check
+    (async function () {
+      const code = '4EdaYwfS';
+      const note = document.getElementById('discordNote');
+      try {
+        const r = await fetch(`https://discord.com/api/v9/invites/${code}?with_counts=true`);
+        if (!r.ok) note.textContent = "Discord invite may be inactive—ping us if the link doesn’t open.";
+      } catch (e) { /* ignore */ }
+    })();
+  </script></body>
+</html>
