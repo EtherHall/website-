@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About EtherHall – AION</title>
+  <style>
+    :root{
+      --bg:#000; --fg:#eaeaf0; --muted:#a2a7b3;
+      --violet:#a855f7; --violet-glow:#c084fc;
+      --green:#22c55e; --green-glow:#4ade80;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,-apple-system,Segoe UI,Inter,Roboto,sans-serif;line-height:1.6}
+
+    .banner{
+      width:100%;
+      aspect-ratio:16/4;
+      background:url('EHB.png') center/cover no-repeat;
+      min-height:220px;
+      height:clamp(220px,28vw,400px);
+    }
+
+    .nav{margin:16px 0 32px;display:flex;justify-content:center;gap:32px;}
+    .nav a{
+      text-decoration:none;font-weight:700;
+      padding:.5rem 1.2rem;border-radius:6px;
+      background:var(--green);color:var(--violet);
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 0 10px var(--green-glow),inset 0 0 6px rgba(255,255,255,0.25);
+      transition:all .25s ease;
+    }
+    .nav a:hover{background:var(--green-glow);color:#000;box-shadow:0 0 16px var(--green-glow),0 0 30px rgba(34,197,94,.6)}
+
+    .wrap{width:min(960px,100%);margin:0 auto;padding:32px}
+    h1,h2{color:var(--violet);margin-bottom:.5rem;text-align:center}
+    h2{margin-top:2rem}
+    p{margin:0 0 1.25rem}
+  </style>
+</head>
+<body>
+  <header class="banner"></header>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main class="wrap">
+    <h1>About EtherHall</h1>
+    <p><strong>EtherHall</strong> is building a new kind of AI: one that’s local, modular, and private — a digital assistant that lives on your machine and works with you, not for the cloud.</p>
+
+    <p>Our flagship tool, <strong>AION</strong>, is already live and functional. It’s a memory-capable, context-aware AI assistant designed to be run directly on the user’s computer — not over the cloud, and not locked behind subscriptions. AION ships via SSD or download, delivering preconfigured models, interface, memory scaffolding, and a ready-to-boot runtime that installs or runs on the user’s hardware. Just like a modern game or creative tool, AION scales with your machine’s power, from laptops to full rigs.</p>
+
+    <h2>Mission</h2>
+    <p>Our mission is to democratize artificial intelligence — not as a service, but as a companion. We believe every person deserves access to an assistant that works with them, not on them. No cloud. No surveillance. No subscriptions. Just a sovereign, local, memory-capable AI that grows with you.</p>
+
+    <p>AION doesn’t just chat — it assists, adapts, and remembers. It runs locally, respects your privacy, and offers plug-and-play intelligence for the real world.</p>
+
+    <h2>Vision</h2>
+    <p>We are building toward a future where digital assistants are no longer products — they are partners. AION sets the foundation for a new kind of operating system — one where AI isn’t an app, but the interface. This will culminate in a full-stack, AI-native environment where users don’t just use software — they collaborate with it.</p>
+
+    <p>From personalized memory and modular upgrades to local execution and ethical autonomy, we’re setting the standard for what private, personal AI should be. This isn’t just about building software. It’s about redefining the relationship between people and machines — one assistant at a time.</p>
+  </main>
+</body>
+</html>
