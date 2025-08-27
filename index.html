@@ -1,144 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AION Launch Countdown</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      color: white;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      text-align: center;
-      padding: 0;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AION Launch Countdown</title>
+    <style>
+    :root{
+      --bg:#000; --fg:#eaeaf0; --muted:#a2a7b3;
+      --violet:#a855f7; --violet-glow:#c084fc;
+      --green:#22c55e; --green-glow:#4ade80;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:ui-sans-serif,-apple-system,Segoe UI,Inter,Roboto,sans-serif}
+
+    /* --- HERO BANNER with beam + nav --- */
+    .hero{
+      position:relative; width:100%; aspect-ratio:16/4;
+      min-height:140px; max-height:260px;
+      background:url('EHB.png') center/cover no-repeat;
+      overflow:hidden;
     }
 
-    /* Navbar */
-    .navbar {
-      width: 100%;
-      background: linear-gradient(90deg, #4b0082, #32cd32);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      box-sizing: border-box;
+    /* Keep beam GREEN */
+    .hero::after{
+      content:""; position:absolute; left:18%; right:-5%; top:50%; height:4px;
+      transform:translateY(-50%);
+      background:linear-gradient(90deg, rgba(0,255,80,0) 0%, var(--green) 12%, var(--green) 88%, rgba(0,255,80,0) 100%);
+      box-shadow:0 0 10px var(--green-glow), 0 0 24px rgba(34,197,94,.8), 0 0 36px rgba(34,197,94,.55), 0 0 60px rgba(34,197,94,.35);
+      pointer-events:none;
     }
 
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: bold;
+    /* Navbar aligned to the beam */
+    .nav{
+      position:absolute; top:50%; left:0; right:0;
+      transform:translateY(-50%);
+      display:flex; justify-content:center; gap:32px;
+      z-index:2;
+    }
+    .nav a{
+      color:#fff; text-decoration:none; font-weight:700;
+      padding:.4rem 1rem; border-radius:6px;
+      background:var(--violet);
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 0 10px var(--violet-glow), inset 0 0 6px rgba(255,255,255,0.25);
+      transition:all .25s ease;
+    }
+    .nav a:hover{
+      background:#c084fc; color:#000;
+      box-shadow:0 0 16px var(--violet-glow), 0 0 30px rgba(168,85,247,.6);
     }
 
-    .navbar a:hover {
-      text-decoration: underline;
-    }
+    /* --- CONTENT WRAP --- */
+    .wrap{ width:min(980px,100%); margin:0 auto; padding:24px; text-align:center; }
 
-    .hero-image {
-      width: 100%;
-      max-height: 600px;
-      object-fit: cover;
-      display: block;
-    }
+    /* Cover PNG */
+    .cover-img{ display:block; margin:24px auto; width:min(90%, 1000px); height:auto; filter: drop-shadow(0 0 16px rgba(124,58,237,.35)); }
 
-    h1 {
-      display: none; /* removed title under image */
-    }
+    .subtitle{color:var(--muted); margin:.25rem 0 1rem}
+    .countdown{ font-family:ui-monospace,Consolas,monospace; font-size:clamp(1.2rem,1rem + 1vw,1.8rem); margin:.5rem 0 1.25rem; }
 
-    .countdown {
-      font-family: monospace;
-      font-size: 2rem;
-      margin: 1rem 0;
-    }
-
-    .tagline {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    .subcopy {
-      font-size: 1rem;
-      color: #aaa;
-      max-width: 600px;
-      margin: 0.5rem auto 2rem;
-    }
-
-    .email-form, .ml-embedded {
-      margin-top: 1.5rem;
-    }
-
-    .discord-button {
-      margin-top: 2rem;
-      background-color: #5865F2;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 9999px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
+    .discord-button{ margin-top:1.25rem; background:#5865F2; color:#fff; border:none; padding:1rem 1.5rem; border-radius:999px; cursor:pointer; font-weight:700; }
+    .ml-embedded{ margin-top:1.25rem }
   </style>
-</head>
-<body>
-  <div class="navbar">
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-
-  <img src="AION EtherHall Fusion.png" alt="AION Logo" class="hero-image" />
-
-  <p>Kickstarting January 1, 2026</p>
-  <div class="countdown" id="countdown"></div>
-
-  <h2 class="tagline">Your computer, reborn as an AI.</h2>
-  <p class="subcopy">Everyone wants their own Jarvis. AION is EtherHall’s vision of a personal, local assistant — one you raise on your machine, private and yours.</p>
-
-  <!-- MailerLite Form Embed -->
-  <div class="ml-embedded" data-form="PdGm9p"></div>
-
-  <a href="https://discord.gg/4EdaYwfS">
-    <button class="discord-button">Join the Discord</button>
-  </a>
-
-  <script>
-    function updateCountdown() {
-      const target = new Date("2026-01-01T00:00:00").getTime();
-      const now = new Date().getTime();
-      const distance = target - now;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerText = "Launched";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / 1000 / 60) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
-
-      document.getElementById("countdown").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  </head>
+  <body>
+    <!-- HERO banner with embedded navbar -->
+    <header class="hero">
+      <nav class="nav"> <a href="index.html">Home</a> <a href="about.html">About</a>
+        <a href="contact.html">Contact</a> </nav>
+    </header>
+    <main class="wrap">
+      <!-- Main cover PNG --> <img src="AION%20EtherHall%20Fusion.png" alt="AION Cover"
+        class="cover-img">
+      <p class="subtitle">Kickstarting January 1, 2026</p>
+      <!-- MailerLite Embedded Form --> <a href="https://discord.gg/4EdaYwfS" target="_blank"
+        rel="noopener noreferrer"><button class="discord-button">Join the
+          Discord</button></a> </main>
+    <script>
+    function updateCountdown(){
+      const target = new Date("2026-01-01T00:00:00");
+      const now = new Date();
+      const dist = target - now;
+      const el = document.getElementById('countdown');
+      if (dist <= 0) { el.textContent = 'Launched'; return; }
+      const d = Math.floor(dist / (1000*60*60*24));
+      const h = Math.floor((dist / (1000*60*60)) % 24);
+      const m = Math.floor((dist / (1000*60)) % 60);
+      const s = Math.floor((dist / 1000) % 60);
+      el.textContent = `${d}d ${h}h ${m}m ${s}s`;
     }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    setInterval(updateCountdown, 1000); updateCountdown();
   </script>
-
-  <!-- MailerLite Universal -->
-  <script>
+    <!-- MailerLite Universal -->
+    <script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
     .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
     n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '1757758');
   </script>
-  <!-- End MailerLite Universal -->
-</body>
+  </body>
 </html>
