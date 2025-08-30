@@ -3,19 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found — EtherHall</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Not Found — EtherHall</title>
+  <meta name="description" content="Page not found." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']},colors:{base:'#070a0d',neon:'#39ff88',line:'rgba(255,255,255,.10)'}}}}</script>
-  <style>html,body{height:100%}body{background:#070a0d;color:#fff}</style>
+  <script>
+    tailwind.config={theme:{extend:{
+      fontFamily:{sans:['Inter','system-ui','sans-serif']},
+      colors:{base:'#070a0d', haze2:'#bf9cff', line:'rgba(255,255,255,0.10)'},
+      backgroundImage:{grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)"}
+    }}} 
+  </script>
+  <style>
+    html,body{height:100%}
+    .glass{backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))}
+  </style>
 </head>
-<body class="font-sans antialiased">
-  <main class="min-h-screen grid place-items-center px-6 text-center">
-    <div>
-      <h1 class="text-7xl font-extrabold">404</h1>
-      <p class="mt-3 text-white/70">This page wandered off.</p>
-      <a href="index.html" class="mt-6 inline-block rounded-xl bg-neon text-black px-5 py-3 font-semibold">Back to Home</a>
+<body class="bg-base text-white font-sans antialiased">
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 opacity-30" style="background:
+      radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
+      radial-gradient(50% 30% at 20% 80%, rgba(191,156,255,0.14), transparent 50%);"></div>
+    <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
+  </div>
+
+  <main class="min-h-screen grid place-items-center px-6">
+    <div class="text-center max-w-lg">
+      <p class="text-white/60">Error 404</p>
+      <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold">Page not found</h1>
+      <p class="mt-3 text-white/70">The page you’re looking for doesn’t exist or was moved.</p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <a href="index.html" class="inline-flex items-center gap-2 rounded-2xl bg-white/10 px-5 py-3 font-semibold hover:bg-white/15 transition">Go home</a>
+        <a href="contact.html" class="inline-flex items-center gap-2 rounded-2xl border border-line px-5 py-3 font-semibold hover:bg-white/5 transition">Contact</a>
+      </div>
     </div>
   </main>
 </body>

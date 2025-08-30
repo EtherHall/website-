@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — EtherHall</title>
-  <meta name="description" content="About EtherHall and AION — the Artificially Intelligent Operating Nexus. Local-first. Private. Yours." />
-
-  <!-- Fonts & Tailwind -->
+  <meta name="description" content="About EtherHall and AION — built after dark, tested in real life, and carried forward by its community." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
-          colors: {
-            base:'#070a0d', ink:'#0b1220',
-            neon:'#39ff88', haze:'#a855f7', haze2:'#bf9cff',
-            line:'rgba(255,255,255,0.10)'
-          },
-          backgroundImage:{ grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)" }
-        }
-      }
-    }
+    tailwind.config = { theme:{ extend:{
+      fontFamily:{ sans:['Inter','system-ui','sans-serif'] },
+      colors:{ base:'#070a0d', ink:'#0b1220', neon:'#39ff88', haze:'#a855f7', haze2:'#bf9cff', line:'rgba(255,255,255,0.10)'},
+      backgroundImage:{ grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)" }
+    }}}
   </script>
   <style>
     html,body{height:100%}
     .glass{backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))}
-    .banner{width:100%;aspect-ratio:16/4;background:url('EHB.png') center/cover no-repeat;min-height:220px;height:clamp(220px,28vw,420px)}
   </style>
 </head>
 <body class="bg-base text-white font-sans antialiased">
-
-  <!-- Background -->
+  <!-- Decorative bg -->
   <div class="fixed inset-0 -z-10">
     <div class="absolute inset-0 opacity-30" style="background:
       radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
@@ -43,93 +31,85 @@
     <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
   </div>
 
-  <!-- Banner -->
-  <header class="banner"></header>
-
   <!-- NAV -->
   <div class="sticky top-0 z-40 w-full glass/70 border-y border-line">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-white">Home</a>
-        <a href="product.html" class="hover:text-white">Product</a>
-        <a href="about.html" class="text-white">About</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+      <div class="flex h-14 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+          <span class="inline-block h-6 w-6 rounded-full bg-haze2/40 ring-2 ring-haze2/60"></span>
+          <span>EtherHall</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <a href="product.html" class="hover:text-white">Product</a>
+          <a href="about.html" class="text-white">About</a>
+          <a href="index.html#roadmap" class="hover:text-white">Roadmap</a>
+          <a href="contact.html" class="hover:text-white">Contact</a>
+        </nav>
         <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener"
-           class="ml-auto inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 hover:border-haze2/40 hover:bg-white/10 transition">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-90" aria-hidden="true">
-            <path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.398-.41-.874-.622-1.249A19.736 19.736 0 0 0 3.83 4.369C1.175 9.033.56 13.58.868 18.082a19.9 19.9 0 0 0 6.017 3.032c.465-.635.879-1.304 1.233-2.005a13.18 13.18 0 0 1-1.897-.902c.127-.095.255-.195.376-.296 3.993 1.827 8.312 1.827 12.267 0 .121.101.248.201.376.296-.606.353-1.236.651-1.898.902.36.7.773 1.37 1.232 2.005a19.88 19.88 0 0 0 6.018-3.032c.5-6.905-1.042-11.415-4.548-13.685Z"/>
-          </svg>
-          Discord
+           class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 text-sm hover:border-haze2/40 hover:bg-white/10 transition">
+          <i data-lucide="messages-square" class="w-4 h-4"></i> Discord
         </a>
       </div>
     </div>
   </div>
 
   <!-- CONTENT -->
-  <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-14 space-y-10">
-    <!-- Hero blurb -->
-    <section>
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14 space-y-10">
+    <header>
       <h1 class="text-4xl sm:text-5xl font-extrabold">About EtherHall</h1>
-      <p class="mt-4 text-white/80 text-lg max-w-3xl">
-        EtherHall started with one person and a dream — a salaried retail job by day, and
-        <strong>AION — the Artificially Intelligent Operating Nexus</strong> by night.
-        Midnight hours, a closet workstation, and the belief that computers could be more than tools — they could be partners.
+      <p class="mt-3 text-white/75 max-w-2xl">
+        Built after dark, tested in real life, and carried forward by every backer who believes in a brighter future with Local AI.
       </p>
-      <p class="mt-3 text-white/80 text-lg max-w-3xl">
-        From those roots, EtherHall became a company with a simple aim: give people back control over their machines.
+    </header>
+
+    <section class="rounded-3xl border border-line bg-white/[.06] p-6 space-y-3">
+      <h2 class="text-xl font-semibold">AION — Artificially Intelligent Operating Nexus</h2>
+      <p class="text-white/80">
+        AION is designed to turn your PC into a local AI that grows with you. You interact with your AI; your AI performs actions or guides you through them. Your AI is your operating system.
       </p>
     </section>
 
-    <!-- Pillars -->
+    <section class="rounded-3xl border border-line bg-white/[.06] p-6 space-y-3">
+      <h3 class="text-lg font-semibold">How EtherHall started</h3>
+      <p class="text-white/80">
+        It began with one person, working a salaried retail job and building AION in the midnight hours with a simple intent: make powerful, private AI useful for everyday people.
+      </p>
+    </section>
+
     <section class="grid md:grid-cols-2 gap-6">
       <div class="rounded-2xl border border-line bg-white/[.06] p-6">
-        <h2 class="text-xl font-semibold">Built for the community at large</h2>
-        <p class="mt-2 text-white/70 text-sm">
-          AION grows step by step with its users. Early backers helped shape it, and the community will always have a voice.
-        </p>
+        <h4 class="font-semibold">Built for the community at large</h4>
+        <p class="mt-2 text-white/70 text-sm">AION grows step by step with its community. Your usage and feedback shape what ships.</p>
       </div>
       <div class="rounded-2xl border border-line bg-white/[.06] p-6">
-        <h2 class="text-xl font-semibold">Built for local-first</h2>
-        <p class="mt-2 text-white/70 text-sm">
-          Your data stays yours. No subscriptions. No lock-in. AION runs on your hardware, not someone else’s cloud.
-        </p>
+        <h4 class="font-semibold">Local-first</h4>
+        <p class="mt-2 text-white/70 text-sm">Runs on your machine. Data stays with you. Network features are opt-in and transparent.</p>
       </div>
       <div class="rounded-2xl border border-line bg-white/[.06] p-6">
-        <h2 class="text-xl font-semibold">Built to scale and grow</h2>
-        <p class="mt-2 text-white/70 text-sm">
-          From one workstation to every household, AION is built for real-world needs today and ready for what’s next.
-        </p>
+        <h4 class="font-semibold">Built to scale and grow</h4>
+        <p class="mt-2 text-white/70 text-sm">From one workstation to every household that wants it.</p>
       </div>
       <div class="rounded-2xl border border-line bg-white/[.06] p-6">
-        <h2 class="text-xl font-semibold">Built with portability in mind</h2>
-        <p class="mt-2 text-white/70 text-sm">
-          Run it from a portable SSD if you don’t want to replace your current OS. Boot anywhere and carry your workspace with you.
-        </p>
+        <h4 class="font-semibold">Portable & interchangeable</h4>
+        <p class="mt-2 text-white/70 text-sm">Works off a portable SSD if you don’t want to replace your current OS yet.</p>
       </div>
     </section>
 
-    <!-- Values -->
-    <section class="rounded-3xl border border-line bg-white/[.06] p-8">
-      <h2 class="text-2xl font-bold">What we value</h2>
-      <ul class="mt-4 space-y-2 text-white/80 text-sm list-disc list-inside">
+    <section class="rounded-3xl border border-line bg-white/[.06] p-6">
+      <h3 class="text-lg font-semibold">What we value</h3>
+      <ul class="mt-2 text-white/80 text-sm list-disc list-inside space-y-1">
         <li><strong>Ownership</strong> — your data and tools belong to you.</li>
         <li><strong>Simplicity</strong> — fewer knobs, more results.</li>
         <li><strong>Transparency</strong> — clear behavior, no mystery calls home.</li>
-        <li><strong>Community</strong> — built for and with the people who believe in local AI.</li>
       </ul>
     </section>
 
-    <!-- Contact -->
-    <section>
-      <h2 class="text-2xl font-bold">Contact</h2>
-      <p class="mt-2 text-white/70">
-        Press, partnerships, or pilots — <a class="text-neon underline" href="mailto:social@etherhall.com">social@etherhall.com</a> or join our
-        <a class="text-neon underline" href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener">Discord</a>.
-      </p>
+    <section class="text-sm text-white/70">
+      Press, partnerships, or pilots — <a href="mailto:social@etherhall.com" class="text-neon underline">social@etherhall.com</a>
+      or join the <a href="https://discord.gg/4EdaYwfS" target="_blank" class="text-neon underline">Discord</a>.
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="border-t border-line py-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex items-center justify-between gap-4">
       <span>© <span id="y"></span> EtherHall LLC.</span>
@@ -139,6 +119,6 @@
       </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>lucide.createIcons(); document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>

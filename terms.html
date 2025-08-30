@@ -3,73 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Use — EtherHall</title>
-  <meta name="description" content="Terms of Use for EtherHall and AION — Artificially Intelligent Operating Nexus." />
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <title>Terms — EtherHall</title>
+  <meta name="description" content="Terms of Use for EtherHall." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']},colors:{base:'#070a0d',line:'rgba(255,255,255,0.10)',neon:'#39ff88',haze:'#a855f7'},backgroundImage:{grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)"}}}}</script>
+  <script>
+    tailwind.config={theme:{extend:{
+      fontFamily:{sans:['Inter','system-ui','sans-serif']},
+      colors:{base:'#070a0d', haze2:'#bf9cff', line:'rgba(255,255,255,0.10)'},
+      backgroundImage:{grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)"}
+    }}} 
+  </script>
   <style>
-    html,body{height:100%} body{background:#070a0d;color:#fff}
+    html,body{height:100%}
     .glass{backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))}
-    .banner{width:100%;aspect-ratio:16/4;background:url('EHB.png') center/cover no-repeat;min-height:220px;height:clamp(220px,28vw,420px)}
   </style>
 </head>
-<body class="font-sans antialiased">
-  <header class="banner"></header>
+<body class="bg-base text-white font-sans antialiased">
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 opacity-30" style="background:
+      radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
+      radial-gradient(50% 30% at 20% 80%, rgba(191,156,255,0.14), transparent 50%);"></div>
+    <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
+  </div>
+
+  <!-- NAV -->
   <div class="sticky top-0 z-40 w-full glass/70 border-y border-line">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-white">Home</a>
-        <a href="product.html" class="hover:text-white">Product</a>
-        <a href="about.html" class="hover:text-white">About</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
-        <span class="ml-auto text-white/60">Terms of Use</span>
+      <div class="flex h-14 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+          <span class="inline-block h-6 w-6 rounded-full bg-haze2/40 ring-2 ring-haze2/60"></span>
+          <span>EtherHall</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <a href="product.html" class="hover:text-white">Product</a>
+          <a href="about.html" class="hover:text-white">About</a>
+          <a href="index.html#roadmap" class="hover:text-white">Roadmap</a>
+          <a href="contact.html" class="hover:text-white">Contact</a>
+        </nav>
       </div>
     </div>
   </div>
 
-  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-14 space-y-8">
-    <h1 class="text-4xl font-extrabold">Terms of Use</h1>
-    <p class="text-white/80">Effective date: <span id="today"></span></p>
+  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14 space-y-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold">Terms of Use</h1>
+    <p class="text-white/70">Last updated: <span id="d"></span></p>
 
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">Acceptance</h2>
-      <p class="mt-2 text-white/75 text-sm">By accessing etherhall.com you agree to these Terms and all applicable laws. If you do not agree, please do not use the site.</p>
-    </section>
-
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">Use of content</h2>
-      <p class="mt-2 text-white/75 text-sm">All site content is provided “as is” for informational purposes. We reserve all rights to branding and visual assets related to AION — Artificially Intelligent Operating Nexus.</p>
-    </section>
-
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">No warranty</h2>
-      <p class="mt-2 text-white/75 text-sm">We disclaim warranties to the fullest extent permitted by law. You use the site at your own risk.</p>
-    </section>
-
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">Limitation of liability</h2>
-      <p class="mt-2 text-white/75 text-sm">EtherHall will not be liable for any indirect or consequential damages arising from your use of the site.</p>
-    </section>
-
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">Changes</h2>
-      <p class="mt-2 text-white/75 text-sm">We may update these Terms from time to time. Material changes will be indicated by an updated date above.</p>
-    </section>
-
-    <section class="rounded-2xl border border-line bg-white/[.06] p-6">
-      <h2 class="text-xl font-semibold">Contact</h2>
-      <p class="mt-2 text-white/75 text-sm">Questions? <a class="text-neon underline" href="mailto:hello@etherhall.com">hello@etherhall.com</a></p>
+    <section class="rounded-3xl border border-line bg-white/[.06] p-6 space-y-3">
+      <p class="text-white/80">By using this website, you agree to these terms. We may update them from time to time. If you don’t agree, please do not use the site.</p>
+      <ul class="list-disc list-inside text-white/80 text-sm space-y-1">
+        <li>Content is provided “as is” without warranties.</li>
+        <li>We may modify or discontinue parts of the site at any time.</li>
+        <li>All trademarks and product names are the property of their respective owners.</li>
+        <li>Contact <a class="underline" href="mailto:social@etherhall.com">social@etherhall.com</a> for questions.</li>
+      </ul>
     </section>
   </main>
 
   <footer class="border-t border-line py-10">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60">© <span id="y"></span> EtherHall LLC.</div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex items-center justify-between gap-4">
+      <span>© <span id="y"></span> EtherHall LLC.</span>
+      <div class="flex items-center gap-4">
+        <a href="privacy.html" class="hover:text-white">Privacy</a>
+        <a href="terms.html" class="hover:text-white">Terms</a>
+      </div>
+    </div>
   </footer>
   <script>
     document.getElementById('y').textContent=new Date().getFullYear();
-    const d=new Date();document.getElementById('today').textContent=d.toLocaleDateString();
+    document.getElementById('d').textContent=new Date().toLocaleDateString();
   </script>
 </body>
 </html>

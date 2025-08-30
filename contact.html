@@ -1,42 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — EtherHall</title>
-  <meta name="description" content="Contact EtherHall — AION: Artificially Intelligent Operating Nexus." />
-
-  <!-- Fonts & Tailwind -->
+  <meta name="description" content="Contact EtherHall — press, partnerships, pilots, and community." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
-          colors: {
-            base:'#070a0d', ink:'#0b1220',
-            neon:'#39ff88', haze:'#a855f7', haze2:'#bf9cff',
-            line:'rgba(255,255,255,0.10)'
-          },
-          backgroundImage:{ grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)" }
-        }
-      }
-    }
-  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config={theme:{extend:{
+      fontFamily:{sans:['Inter','system-ui','sans-serif']},
+      colors:{base:'#070a0d', ink:'#0b1220', neon:'#39ff88', haze:'#a855f7', haze2:'#bf9cff', line:'rgba(255,255,255,0.10)'},
+      backgroundImage:{grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)"}
+    }}} 
+  </script>
   <style>
     html,body{height:100%}
     .glass{backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))}
-    .banner{width:100%;aspect-ratio:16/4;background:url('EHB.png') center/cover no-repeat;min-height:220px;height:clamp(220px,28vw,420px)}
   </style>
 </head>
 <body class="bg-base text-white font-sans antialiased">
-
-  <!-- Background -->
   <div class="fixed inset-0 -z-10">
     <div class="absolute inset-0 opacity-30" style="background:
       radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
@@ -44,40 +30,35 @@
     <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
   </div>
 
-  <!-- Banner -->
-  <header class="banner"></header>
-
   <!-- NAV -->
   <div class="sticky top-0 z-40 w-full glass/70 border-y border-line">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 items-center gap-6 text-sm">
-        <a href="index.html" class="hover:text-white">Home</a>
-        <a href="product.html" class="hover:text-white">Product</a>
-        <a href="about.html" class="hover:text-white">About</a>
-        <a href="contact.html" class="text-white">Contact</a>
+      <div class="flex h-14 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
+          <span class="inline-block h-6 w-6 rounded-full bg-haze2/40 ring-2 ring-haze2/60"></span>
+          <span>EtherHall</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
+          <a href="product.html" class="hover:text-white">Product</a>
+          <a href="about.html" class="hover:text-white">About</a>
+          <a href="index.html#roadmap" class="hover:text-white">Roadmap</a>
+          <a href="contact.html" class="text-white">Contact</a>
+        </nav>
         <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener"
-           class="ml-auto inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 hover:border-haze2/40 hover:bg-white/10 transition">
-          <!-- Discord glyph -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="opacity-90" aria-hidden="true">
-            <path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.398-.41-.874-.622-1.249A19.736 19.736 0 0 0 3.83 4.369C1.175 9.033.56 13.58.868 18.082a19.9 19.9 0 0 0 6.017 3.032c.465-.635.879-1.304 1.233-2.005a13.18 13.18 0 0 1-1.897-.902c.127-.095.255-.195.376-.296 3.993 1.827 8.312 1.827 12.267 0 .121.101.248.201.376.296-.606.353-1.236.651-1.898.902.36.7.773 1.37 1.232 2.005a19.88 19.88 0 0 0 6.018-3.032c.5-6.905-1.042-11.415-4.548-13.685Z"/>
-          </svg>
-          Discord
+           class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 text-sm hover:border-haze2/40 hover:bg-white/10 transition">
+          <i data-lucide="messages-square" class="w-4 h-4"></i> Discord
         </a>
       </div>
     </div>
   </div>
 
-  <!-- CONTENT -->
   <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-14 space-y-10">
-    <!-- Title -->
-    <section>
+    <header>
       <h1 class="text-4xl sm:text-5xl font-extrabold">Contact EtherHall</h1>
-      <p class="mt-3 text-white/75 max-w-2xl">
-        Press, partnerships, pilots, or community — connect with us directly.
-      </p>
-    </section>
+      <p class="mt-3 text-white/75">Press, partnerships, pilots, or community — connect with us directly.</p>
+    </header>
 
-    <!-- Primary email card -->
+    <!-- Email -->
     <section class="rounded-3xl border border-line bg-white/[.06] p-6">
       <div class="flex items-center gap-3">
         <i data-lucide="mail" class="w-5 h-5 text-white/80"></i>
@@ -85,17 +66,15 @@
       </div>
       <div class="mt-3">
         <a href="mailto:social@etherhall.com" class="inline-flex items-center gap-2 text-neon hover:underline">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          social@etherhall.com
+          <i data-lucide="send" class="w-4 h-4"></i> social@etherhall.com
         </a>
       </div>
     </section>
 
-    <!-- Socials list (icons + handles) -->
+    <!-- Socials -->
     <section class="rounded-3xl border border-line bg-white/[.06] p-6">
       <h2 class="text-lg font-semibold">Social</h2>
       <ul class="mt-4 divide-y divide-white/10">
-        <!-- X / Twitter -->
         <li class="py-3 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <i data-lucide="twitter" class="w-5 h-5 text-white/70"></i>
@@ -103,8 +82,6 @@
           </div>
           <a href="https://x.com/EtherHallHQ" target="_blank" rel="noopener" class="text-white/70 hover:text-white text-sm">Open</a>
         </li>
-
-        <!-- YouTube -->
         <li class="py-3 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <i data-lucide="youtube" class="w-5 h-5 text-white/70"></i>
@@ -112,8 +89,6 @@
           </div>
           <a href="https://youtube.com/@EtherHall" target="_blank" rel="noopener" class="text-white/70 hover:text-white text-sm">Open</a>
         </li>
-
-        <!-- TikTok (no Lucide brand icon; using 'music' as a neutral glyph) -->
         <li class="py-3 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <i data-lucide="music" class="w-5 h-5 text-white/70"></i>
@@ -121,20 +96,18 @@
           </div>
           <a href="https://tiktok.com/@etherhallhq" target="_blank" rel="noopener" class="text-white/70 hover:text-white text-sm">Open</a>
         </li>
-
-        <!-- Reddit -->
         <li class="py-3 flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <i data-lucide="reddit" class="w-5 h-5 text-white/70"></i>
+            <!-- Reddit SVG (Lucide has no brand glyph) -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white/70" aria-hidden="true">
+              <path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385-.113-.965-.215-2.446.045-3.495.234-.965 1.506-6.147 1.506-6.147s-.383-.767-.383-1.902c0-1.781 1.033-3.111 2.317-3.111 1.094 0 1.621.82 1.621 1.801 0 1.096-.697 2.732-1.054 4.254-.3 1.272.637 2.309 1.889 2.309 2.267 0 3.788-2.987 3.788-6.516 0-2.687-1.813-4.7-5.126-4.7-3.73 0-6.056 2.787-6.056 5.899 0 1.068.414 2.213.93 2.837a.377.377 0 01.088.362c-.097.397-.315 1.271-.358 1.448-.056.234-.18.285-.416.172-1.551-.721-2.52-2.982-2.52-4.805 0-3.906 2.838-7.493 8.192-7.493 4.299 0 7.644 3.064 7.644 7.162 0 4.275-2.69 7.708-6.424 7.708-1.256 0-2.438-.651-2.842-1.421l-.773 2.942c-.277 1.061-1.032 2.387-1.54 3.197C9.35 23.845 10.656 24 12 24c6.627 0 12-5.373 12-12z"/>
+            </svg>
             <span class="text-white/90">u/EtherHall</span>
           </div>
           <a href="https://reddit.com/u/EtherHall" target="_blank" rel="noopener" class="text-white/70 hover:text-white text-sm">Open</a>
         </li>
-
-        <!-- Discord -->
         <li class="py-3 flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <!-- Custom Discord glyph for consistency -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white/70" aria-hidden="true">
               <path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.398-.41-.874-.622-1.249A19.736 19.736 0 0 0 3.83 4.369C1.175 9.033.56 13.58.868 18.082a19.9 19.9 0 0 0 6.017 3.032c.465-.635.879-1.304 1.233-2.005a13.18 13.18 0 0 1-1.897-.902c.127-.095.255-.195.376-.296 3.993 1.827 8.312 1.827 12.267 0 .121.101.248.201.376.296-.606.353-1.236.651-1.898.902.36.7.773 1.37 1.232 2.005a19.88 19.88 0 0 0 6.018-3.032c.5-6.905-1.042-11.415-4.548-13.685Z"/>
             </svg>
@@ -146,7 +119,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="border-t border-line py-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex items-center justify-between gap-4">
       <span>© <span id="y"></span> EtherHall LLC.</span>
@@ -156,10 +128,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    lucide.createIcons();
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>lucide.createIcons(); document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
