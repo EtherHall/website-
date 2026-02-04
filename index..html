@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EtherHall — AION</title>
+  <!-- Updated description to reflect current status and privacy focus -->
+  <meta name="description" content="AION is a local-first AI assistant by EtherHall. Runs on your hardware, private by default, and currently in alpha testing for individuals with consult-based deployments for organizations." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="EtherHall — AION" />
+  <meta property="og:description" content="AION runs on your hardware and grows with you. Private by default, portable, and built for real life." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://etherhall.com" />
+  <meta property="og:image" content="https://etherhall.com/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          colors: {
+            base:'#070a0d', ink:'#0b1220',
+            neon:'#39ff88', haze:'#a855f7', haze2:'#bf9cff',
+            mint:'#9fffe0', line:'rgba(255,255,255,0.10)'
+          },
+          boxShadow: { glow: '0 0 0 1px rgba(57,255,136,.35), 0 8px 40px rgba(57,255,136,.10)' },
+          backgroundImage:{ grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)" }
+        }
+      }
+    }
+  </script>
+  <style>
+    html,body { height: 100% }
+    .glass { backdrop-filter: blur(10px); background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); }
+  </style>
+
+  <!-- MailerLite -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account','1757758');
+  </script>
+</head>
+<body class="bg-base text-white font-sans antialiased">
+
+  <!-- Decorative background -->
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 opacity-30" style="background:
+      radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
+      radial-gradient(50% 30% at 20% 80%, rgba(191,156,255,0.14), transparent 50%);"></div>
+    <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
+  </div>
+
+  <!-- NAV -->
+  <div class="sticky top-0 z-40 w-full glass/70 border-y border-line">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-14 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight" aria-label="EtherHall home">
+          <span class="inline-block h-6 w-6 rounded-full bg-haze2/40 ring-2 ring-haze2/60"></span>
+          <span>EtherHall</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80" aria-label="Primary">
+          <a href="product.html" class="hover:text-white">Product</a>
+          <a href="about.html" class="hover:text-white">About</a>
+          <a href="#roadmap" class="hover:text-white">Roadmap</a>
+          <a href="contact.html" class="hover:text-white">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener"
+             class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 text-sm hover:border-haze2/40 hover:bg-white/10 transition"
+             aria-label="Join our Discord server">
+            <i data-lucide="messages-square" class="w-4 h-4"></i> Discord
+          </a>
+          <a href="#updates" class="inline-flex items-center gap-2 rounded-2xl bg-neon/20 px-3 py-1.5 text-sm font-semibold text-neon hover:shadow-glow transition">
+            <i data-lucide="zap" class="w-4 h-4"></i> Get Updates
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-20">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <!-- Updated tagline to reflect local-first system -->
+          <p class="text-white/70 tracking-widest text-xs">LOCAL-FIRST AI SYSTEM</p>
+          <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            Turn your PC into <span class="text-neon">Your own Local AI</span>
+          </h1>
+          <p class="mt-5 text-lg text-white/80 max-w-xl">
+            AION runs on your hardware and grows with you. No subscriptions. No cloud leash. Real help for everyday work, learning, and play.
+          </p>
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="product.html" class="inline-flex items-center justify-center gap-2 rounded-2xl bg-neon text-black px-5 py-3 font-semibold hover:opacity-90 transition">
+              <i data-lucide="play" class="w-4 h-4"></i> Explore Product
+            </a>
+            <a href="#updates" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-line px-5 py-3 font-semibold hover:bg-white/5 transition">
+              <i data-lucide="mail" class="w-4 h-4"></i> Get Updates
+            </a>
+          </div>
+          <!-- Status line replacing Kickstarter countdown -->
+          <div class="mt-6 text-white/70 text-sm">
+            <span class="font-semibold text-white">Status:</span> Alpha testing – invites available for individuals · Consultations for organizations
+          </div>
+          <div class="mt-6 grid grid-cols-2 sm:flex sm:flex-wrap gap-4 text-white/60 text-sm">
+            <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> Local-first</div>
+            <div class="flex items-center gap-2"><i data-lucide="lock" class="w-4 h-4"></i> Private by default</div>
+            <div class="flex items-center gap-2"><i data-lucide="hard-drive" class="w-4 h-4"></i> Portable SSD option</div>
+          </div>
+        </div>
+
+        <!-- Screenshot card with lightbox -->
+        <div class="relative">
+          <div class="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-haze2/25 via-neon/10 to-transparent blur-2xl"></div>
+          <div class="rounded-3xl border border-line bg-ink/70 p-2 shadow-2xl">
+            <div class="rounded-2xl bg-black/60 ring-1 ring-white/10 overflow-hidden">
+              <div class="flex items-center gap-2 px-3 py-2 bg-white/5">
+                <span class="h-3 w-3 rounded-full bg-red-400/80"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400/80"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400/80"></span>
+                <span class="ml-auto text-xs text-white/60">AION — Interface Preview</span>
+              </div>
+              <button id="shotBtn" class="block relative group" aria-label="Open full-size screenshot">
+                <img src="AIONinterface.png" alt="AION desktop interface" class="w-full h-auto object-cover" />
+                <span class="absolute inset-0 ring-1 ring-white/10 group-hover:ring-white/30 transition"></span>
+              </button>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-white/60 text-center">Click to enlarge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" class="py-16 border-t border-line">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold">Roadmap</h2>
+        <p class="mt-3 text-white/70">
+          <strong>From midnight builds to local deployments.</strong> AION was born after dark, refined in real‑world use, and grows step by step with its community and the organizations that need private AI.
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <!-- Phase 1 -->
+        <div class="rounded-2xl border border-line bg-white/[.06] p-6">
+          <p class="text-xs uppercase tracking-wider text-white/60">Phase 1</p>
+          <h4 class="mt-2 font-semibold">Alpha Testing</h4>
+          <ul class="mt-3 space-y-2 text-white/80 text-sm list-disc list-inside">
+            <li>Invite‑only access for individuals</li>
+            <li>Pilot programs for organizations</li>
+            <li>Core local AI, memory & document features</li>
+          </ul>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="rounded-2xl border border-line bg-white/[.06] p-6">
+          <p class="text-xs uppercase tracking-wider text-white/60">Phase 2</p>
+          <h4 class="mt-2 font-semibold">Expanded Access</h4>
+          <ul class="mt-3 space-y-2 text-white/80 text-sm list-disc list-inside">
+            <li>Gradually expanding invites</li>
+            <li>Feedback‑driven improvements</li>
+            <li>Preparing portable SSD option ("The Forge")</li>
+          </ul>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="rounded-2xl border border-line bg-white/[.06] p-6">
+          <p class="text-xs uppercase tracking-wider text-white/60">Phase 3</p>
+          <h4 class="mt-2 font-semibold">General Release</h4>
+          <ul class="mt-3 space-y-2 text-white/80 text-sm list-disc list-inside">
+            <li>Public access with ongoing updates</li>
+            <li>Custom deployments for organizations</li>
+            <li>Community‑led feature expansion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES (MailerLite embed) -->
+  <section id="updates" class="py-16 border-t border-line">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold">Get updates</h2>
+      <p class="mt-3 text-white/70">No spam. Only real milestones and demo drops.</p>
+      <div class="mt-6 ml-embedded" data-form="PdGm9p"></div>
+      <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-4 rounded-full bg-[#5865F2] px-5 py-3 font-semibold">
+        <i data-lucide="messages-square" class="w-4 h-4"></i> Join the Discord
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line py-10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© <span id="y"></span> EtherHall LLC. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="privacy.html" class="hover:text-white">Privacy</a>
+        <a href="terms.html" class="hover:text-white">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4" aria-hidden="true">
+    <button id="closeLb" class="absolute top-4 right-4 rounded-lg bg-white/10 px-3 py-2 text-sm hover:bg-white/20">Close</button>
+    <img src="AIONinterface.png" alt="AION interface preview (full)" class="max-w-full max-h-full rounded-xl ring-1 ring-white/20" />
+  </div>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const open = document.getElementById('shotBtn');
+    const close = document.getElementById('closeLb');
+    if (open && lb && close) {
+      open.addEventListener('click', () => { lb.classList.remove('hidden'); lb.setAttribute('aria-hidden','false'); });
+      close.addEventListener('click', () => { lb.classList.add('hidden'); lb.setAttribute('aria-hidden','true'); });
+      lb.addEventListener('click', (e) => { if (e.target === lb) { lb.classList.add('hidden'); lb.setAttribute('aria-hidden','true'); } });
+    }
+  </script>
+</body>
+</html>
