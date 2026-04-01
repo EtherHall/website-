@@ -1,89 +1,827 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy — EtherHall</title>
-  <meta name="description" content="Privacy Policy for EtherHall." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config={theme:{extend:{
-      fontFamily:{sans:['Inter','system-ui','sans-serif']},
-      colors:{base:'#070a0d', haze2:'#bf9cff', line:'rgba(255,255,255,0.10)'},
-      backgroundImage:{grid:"radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)"}
-    }}} 
-  </script>
-  <style>
-    html,body{height:100%}
-    .glass{backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03))}
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Privacy — EtherHall</title>
+<meta name="description" content="Privacy Policy for EtherHall."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#02040a; --bg2:#06090f; --text:#f2f4f8;
+  --muted:rgba(242,244,248,0.58); --dim:rgba(242,244,248,0.30);
+  --neon:#39ff88; --haze:#bf9cff; --plasma:#a855f7; --cyan:#00e5ff;
+  --border:rgba(255,255,255,0.08); --border-h:rgba(255,255,255,0.16);
+  --surface:rgba(255,255,255,0.04); --surface-h:rgba(255,255,255,0.07);
+  --neon-glow:0 0 40px rgba(57,255,136,0.22);
+}
+[data-theme="light"]{
+  --bg:#f0f4f8; --bg2:#e4eaf0; --text:#0a0f1a;
+  --muted:rgba(10,15,26,0.60); --dim:rgba(10,15,26,0.38);
+  --border:rgba(0,0,0,0.08); --border-h:rgba(0,0,0,0.16);
+  --surface:rgba(0,0,0,0.04); --surface-h:rgba(0,0,0,0.07);
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100%;background:var(--bg);color:var(--text);
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:16px;line-height:1.72;overflow-x:hidden;
+  transition:background 0.3s,color 0.3s;
+}
+a{color:var(--neon);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.08;letter-spacing:-0.02em}
+strong{font-weight:600}
+img{max-width:100%;height:auto;display:block}
+
+/* ── Ambient bg ── */
+.ambient{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 55% at 78% 18%,rgba(57,255,136,0.055),transparent 65%),
+    radial-gradient(ellipse 45% 55% at 18% 82%,rgba(168,85,247,0.065),transparent 65%),
+    radial-gradient(ellipse 35% 40% at 55% 50%,rgba(0,229,255,0.025),transparent 65%);
+}
+[data-theme="light"] .ambient{opacity:0.4}
+.site-wrap{position:relative;z-index:1}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(2,4,10,0.88);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+[data-theme="light"] nav{background:rgba(240,244,248,0.90)}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 2rem;
+  height:60px;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;
+  letter-spacing:0.04em;text-decoration:none;
+  background:linear-gradient(100deg,var(--neon),var(--cyan) 50%,var(--haze));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  flex-shrink:0;
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:0.875rem;font-weight:400;color:var(--muted);
+  text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active{font-weight:600}
+.nav-actions{display:flex;align-items:center;gap:0.6rem}
+.theme-btn{
+  width:32px;height:32px;border-radius:8px;border:1px solid var(--border);
+  background:var(--surface);color:var(--muted);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:0.82rem;
+  transition:all 0.2s;flex-shrink:0;
+}
+.theme-btn:hover{border-color:var(--border-h);color:var(--text);background:var(--surface-h)}
+[data-theme="dark"]  .icon-sun{display:none}
+[data-theme="light"] .icon-moon{display:none}
+.nav-discord{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--muted)!important;padding:0.35rem 0.9rem;border-radius:8px;
+  font-size:0.82rem;text-decoration:none!important;transition:all 0.2s;white-space:nowrap;
+}
+.nav-discord:hover{border-color:rgba(191,156,255,0.4);color:var(--text)!important}
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  cursor:pointer;padding:0.4rem 0.5rem;width:36px;height:32px;
+}
+.hamburger span{
+  display:block;width:18px;height:1.5px;background:var(--muted);border-radius:1px;
+  transition:transform 0.3s,opacity 0.3s;transform-origin:center;
+}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--text)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--text)}
+.mobile-menu{
+  overflow:hidden;max-height:0;transition:max-height 0.38s ease;
+  background:rgba(2,4,10,0.98);border-top:0 solid var(--border);
+}
+.mobile-menu.open{max-height:500px;border-top-width:1px}
+.mobile-menu-inner{
+  max-width:1200px;margin:0 auto;padding:0.75rem 2rem 1.5rem;
+  display:flex;flex-direction:column;
+}
+.mobile-menu-inner a{
+  font-size:1rem;color:var(--muted);text-decoration:none;
+  padding:0.65rem 0;border-bottom:1px solid var(--border);
+  display:block;transition:color 0.2s;
+}
+.mobile-menu-inner a:last-child{border-bottom:none}
+.mobile-menu-inner a:hover,.mobile-menu-inner a.active{color:var(--text)}
+.mobile-disc{
+  display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.875rem;
+  background:rgba(88,101,242,0.12);border:1px solid rgba(88,101,242,0.28);
+  color:#8b9dff!important;padding:0.6rem 1rem;border-radius:10px;
+  font-weight:600;font-size:0.875rem;text-decoration:none!important;
+}
+@media(max-width:767px){
+  .nav-links,.nav-discord{display:none}
+  .hamburger{display:flex}
+}
+
+/* ── Page hero ── */
+.page-hero{
+  position:relative;z-index:1;
+  min-height:52vh;
+  display:flex;align-items:center;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+#page-orb-canvas{
+  position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+}
+.page-hero-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(2,4,10,0.92) 0%,rgba(2,4,10,0.75) 40%,rgba(2,4,10,0.3) 75%,transparent 100%),
+    linear-gradient(to top,rgba(2,4,10,0.8) 0%,transparent 40%),
+    linear-gradient(to bottom,rgba(2,4,10,0.5) 0%,transparent 30%);
+}
+.page-hero-inner{
+  max-width:1200px;margin:0 auto;position:relative;z-index:2;
+  padding:5rem 2rem 4rem;width:100%;
+}
+[data-theme="light"] .page-hero-overlay{
+  background:
+    linear-gradient(90deg,rgba(240,244,248,0.96) 0%,rgba(240,244,248,0.85) 45%,rgba(240,244,248,0.5) 70%,transparent 100%),
+    linear-gradient(to top,rgba(240,244,248,0.9) 0%,transparent 40%);
+}
+.page-label{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid rgba(57,255,136,0.22);background:rgba(57,255,136,0.06);
+  padding:0.28rem 0.85rem;border-radius:99px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--neon);margin-bottom:1.5rem;
+  opacity:0;animation:rise 0.6s ease 0.15s forwards;
+}
+.page-title{
+  font-size:clamp(2.2rem,5vw,4rem);font-weight:800;
+  line-height:1.0;
+  opacity:0;animation:rise 0.7s ease 0.3s forwards;
+}
+.grad{
+  background:linear-gradient(120deg,var(--neon) 0%,var(--cyan) 45%,var(--haze) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.page-sub{
+  margin-top:1rem;font-size:1.05rem;font-weight:300;
+  color:var(--muted);max-width:540px;line-height:1.78;
+  opacity:0;animation:rise 0.6s ease 0.45s forwards;
+}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:0.10s}.reveal.d2{transition-delay:0.20s}
+.reveal.d3{transition-delay:0.30s}.reveal.d4{transition-delay:0.40s}
+
+/* ── Cards ── */
+.card{
+  border:1px solid var(--border);border-radius:1.25rem;
+  padding:1.75rem;background:var(--surface);
+  transition:border-color 0.25s,background 0.25s,transform 0.25s;
+  position:relative;overflow:hidden;
+}
+.card::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:radial-gradient(circle at 70% 0%,rgba(57,255,136,0.08),transparent 60%);
+  opacity:0;transition:opacity 0.3s;
+}
+.card:hover{border-color:rgba(57,255,136,0.28);background:var(--surface-h);transform:translateY(-3px)}
+.card:hover::after{opacity:1}
+.card-lg{
+  border:1px solid var(--border);border-radius:1.5rem;
+  padding:2.25rem;background:var(--surface);
+  transition:border-color 0.2s;
+}
+.card-lg:hover{border-color:var(--border-h)}
+.card-icon{
+  width:42px;height:42px;border-radius:10px;margin-bottom:1.25rem;
+  background:rgba(57,255,136,0.08);border:1px solid rgba(57,255,136,0.18);
+  display:flex;align-items:center;justify-content:center;color:var(--neon);
+}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:0.6rem}
+.card p{font-size:0.875rem;color:var(--muted);line-height:1.72}
+
+/* ── Buttons ── */
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
+  letter-spacing:0.02em;padding:0.8rem 1.75rem;border-radius:10px;
+  text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;
+}
+.btn:hover{text-decoration:none}
+.btn-neon{background:var(--neon);color:#000}
+.btn-neon:hover{opacity:0.86;box-shadow:var(--neon-glow)}
+.btn-ghost{border:1px solid var(--border);background:var(--surface);color:var(--text)!important}
+.btn-ghost:hover{border-color:var(--border-h);background:var(--surface-h)}
+.btn-haze{background:rgba(191,156,255,0.12);color:var(--haze)!important;border:1px solid rgba(191,156,255,0.28)}
+.btn-haze:hover{background:rgba(191,156,255,0.22)}
+
+/* ── Sections ── */
+.section{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);padding:5.5rem 2rem;
+}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--dim);margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.section-label::before{content:'';width:20px;height:1px;background:var(--neon)}
+.section-title{
+  font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;
+  line-height:1.08;max-width:500px;margin-bottom:3rem;
+}
+
+/* ── Grids ── */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* ── Ko-fi ── */
+.kofi-wrap{
+  position:relative;z-index:1;border-top:1px solid var(--border);
+  padding:2rem;display:flex;justify-content:center;
+}
+.kofi-btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--muted)!important;padding:0.65rem 1.5rem;border-radius:10px;
+  font-size:0.875rem;text-decoration:none!important;transition:all 0.2s;
+}
+.kofi-btn:hover{border-color:var(--border-h);background:var(--surface-h);color:var(--text)!important}
+
+/* ── Footer ── */
+footer{
+  position:relative;z-index:1;border-top:1px solid var(--border);
+  padding:2.5rem 2rem;font-size:0.83rem;color:var(--dim);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--dim);text-decoration:none;transition:color 0.15s}
+.footer-links a:hover{color:var(--text)}
+
+/* ── Utils ── */
+.pw{max-width:1200px;margin:0 auto;padding:0 2rem}
+.pwm{max-width:52rem;margin:0 auto;padding:0 2rem}
+.flex-gap{display:flex;flex-wrap:wrap;align-items:center;gap:0.875rem}
+.status-badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid var(--border);background:var(--surface);
+  padding:0.3rem 0.9rem;border-radius:99px;font-size:0.78rem;color:var(--muted);
+}
+.pulse{
+  width:6px;height:6px;border-radius:50%;background:var(--neon);
+  animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(57,255,136,0.5)}50%{box-shadow:0 0 0 5px rgba(57,255,136,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* Screenshot card */
+.shot-card{
+  border:1px solid var(--border);border-radius:1.5rem;padding:0.5rem;
+  background:rgba(6,9,15,0.70);
+  box-shadow:0 24px 80px rgba(0,0,0,0.5);position:relative;
+}
+.shot-card::before{
+  content:'';position:absolute;inset:-1px;border-radius:1.5rem;
+  background:linear-gradient(135deg,rgba(191,156,255,0.18),rgba(57,255,136,0.06),transparent 60%);
+  z-index:-1;
+}
+.shot-bar{
+  display:flex;align-items:center;gap:0.4rem;padding:0.5rem 0.75rem;
+  background:rgba(255,255,255,0.04);border-radius:1.1rem 1.1rem 0 0;
+}
+.shot-dot{width:10px;height:10px;border-radius:50%}
+.shot-bar .shot-label{margin-left:auto;font-size:0.72rem;color:var(--dim)}
+.shot-card img{border-radius:0.9rem;cursor:zoom-in}
+[data-theme="light"] .shot-card{background:rgba(255,255,255,0.7)}
+
+/* Marquee */
+.marquee-strip{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:rgba(2,4,10,0.9);overflow:hidden;padding:0.875rem 0;
+}
+.marquee-track{display:flex;gap:3.5rem;animation:marquee 26s linear infinite;white-space:nowrap}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.m-item{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);flex-shrink:0}
+.m-dot{width:4px;height:4px;border-radius:50%;background:var(--neon);flex-shrink:0}
+
+/* Responsive nav */
+@media(max-width:600px){
+  .page-hero{padding:3.5rem 1.25rem 3rem}
+  .section{padding:4rem 1.25rem}
+  .pw,.pwm{padding:0 1.25rem}
+  .nav-inner{padding:0 1.25rem}
+}
+</style>
 </head>
-<body class="bg-base text-white font-sans antialiased">
-  <div class="fixed inset-0 -z-10">
-    <div class="absolute inset-0 opacity-30" style="background:
-      radial-gradient(60% 40% at 70% 10%, rgba(159,255,224,0.12), transparent 40%),
-      radial-gradient(50% 30% at 20% 80%, rgba(191,156,255,0.14), transparent 50%);"></div>
-    <div class="absolute inset-0 [background-size:24px_24px] bg-grid"></div>
-  </div>
-
-  <!-- NAV -->
-  <div class="sticky top-0 z-40 w-full glass border-y border-line">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-14 items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight">
-          <span class="inline-block h-6 w-6 rounded-full bg-haze2/40 ring-2 ring-haze2/60"></span>
-          <span>EtherHall</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-sm text-white/80">
-          <a href="product.html" class="hover:text-white">Product</a>
-          <a href="about.html" class="hover:text-white">About</a>
-          <a href="index.html#roadmap" class="hover:text-white">Roadmap</a>
-          <a href="download.html" class="hover:text-white">Download</a>
-          <a href="contact.html" class="hover:text-white">Contact</a>
-        </nav>
-        <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener"
-           class="hidden sm:inline-flex items-center gap-2 rounded-xl border border-line bg-white/5 px-3 py-1.5 text-sm hover:border-haze2/40 hover:bg-white/10 transition">
-          <i data-lucide="messages-square" class="w-4 h-4"></i> Discord
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-14 space-y-6">
-    <h1 class="text-3xl sm:text-4xl font-extrabold">Privacy Policy</h1>
-    <p class="text-white/70">Last updated: <span id="d"></span></p>
-
-    <section class="rounded-3xl border border-line bg-white/[.06] p-6 space-y-3">
-      <p class="text-white/80">We build AION to be local-first and private by default. This website collects minimal data needed to operate (e.g., basic analytics and mailing list submissions you choose to provide).</p>
-      <ul class="list-disc list-inside text-white/80 text-sm space-y-1">
-        <li><strong>Local-first product</strong>: AION runs on your hardware; data stays with you.</li>
-        <li><strong>Email updates</strong>: If you subscribe, we store your email to send launch updates. You can unsubscribe anytime.</li>
-        <li><strong>Cookies / analytics</strong>: We use lightweight analytics to understand traffic and improve the site.</li>
-        <li><strong>Contact</strong>: For privacy questions, email <a class="underline" href="/cdn-cgi/l/email-protection#087b676b616964486d7c606d7a60696464266b6765"><span class="__cf_email__" data-cfemail="c3b0aca0aaa2af83a6b7aba6b1aba2afafeda0acae">[email&#160;protected]</span></a>.</li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- Ko-fi -->
-  <div class="border-t border-line py-8">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center">
-      <a href="https://ko-fi.com/etherhall" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white/80 hover:bg-white/10 hover:border-white/20 hover:text-white transition">
-        ☕ Support EtherHall on Ko-fi
+<body>
+<div class="ambient"></div>
+<div class="site-wrap">
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">EtherHall</a>
+    <ul class="nav-links">
+      <li><a href="product.html">Product</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+        <span class="icon-sun">☀</span><span class="icon-moon">☾</span>
+      </button>
+      <a href="https://discord.gg/4EdaYwfS" target="_blank" rel="noopener" class="nav-discord">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.398-.41-.874-.622-1.249A19.736 19.736 0 0 0 3.83 4.369C1.175 9.033.56 13.58.868 18.082a19.9 19.9 0 0 0 6.017 3.032c.465-.635.879-1.304 1.233-2.005a13.18 13.18 0 0 1-1.897-.902c.127-.095.255-.195.376-.296 3.993 1.827 8.312 1.827 12.267 0 .121.101.248.201.376.296-.606.353-1.236.651-1.898.902.36.7.773 1.37 1.232 2.005a19.88 19.88 0 0 0 6.018-3.032c.5-6.905-1.042-11.415-4.548-13.685Z"/></svg> Discord
       </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <a href="product.html">Product</a>
+      <a href="about.html">About</a>
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://discord.gg/4EdaYwfS" target="_blank" class="mobile-disc"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515c-.211.375-.444.864-.608 1.249-1.844-.276-3.68-.276-5.486 0-.164-.398-.41-.874-.622-1.249A19.736 19.736 0 0 0 3.83 4.369C1.175 9.033.56 13.58.868 18.082a19.9 19.9 0 0 0 6.017 3.032c.465-.635.879-1.304 1.233-2.005a13.18 13.18 0 0 1-1.897-.902c.127-.095.255-.195.376-.296 3.993 1.827 8.312 1.827 12.267 0 .121.101.248.201.376.296-.606.353-1.236.651-1.898.902.36.7.773 1.37 1.232 2.005a19.88 19.88 0 0 0 6.018-3.032c.5-6.905-1.042-11.415-4.548-13.685Z"/></svg> Discord</a>
+    </div>
+  </div>
+</nav>
 
-  <footer class="border-t border-line py-10">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-sm text-white/60 flex items-center justify-between gap-4">
-      <span>© <span id="y"></span> EtherHall LLC.</span>
-      <div class="flex items-center gap-4">
-        <a href="privacy.html" class="hover:text-white">Privacy</a>
-        <a href="terms.html" class="hover:text-white">Terms</a>
+<section class="page-hero">
+  <canvas id="page-orb-canvas"></canvas>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-inner pw">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title" style="font-size:clamp(2rem,4vw,3rem);">Privacy Policy</h1>
+    <p class="page-sub" style="font-size:0.9rem;">Last updated: <span class="today"></span></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="pwm">
+    <div class="card-lg reveal">
+      <p style="color:var(--muted);margin-bottom:1.25rem;">We build AION to be local-first and private by default. This website collects minimal data needed to operate.</p>
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+        <div style="padding:1rem 1.25rem;border:1px solid var(--border);border-radius:0.875rem;background:var(--surface);">
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Local-first product</h3>
+          <p style="font-size:0.875rem;color:var(--muted);">AION runs on your hardware. Data stays with you. We have no access to anything running on your machine.</p>
+        </div>
+        <div style="padding:1rem 1.25rem;border:1px solid var(--border);border-radius:0.875rem;background:var(--surface);">
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Email updates</h3>
+          <p style="font-size:0.875rem;color:var(--muted);">If you subscribe, we store your email address to send launch updates. You can unsubscribe at any time from any email we send.</p>
+        </div>
+        <div style="padding:1rem 1.25rem;border:1px solid var(--border);border-radius:0.875rem;background:var(--surface);">
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Cookies &amp; analytics</h3>
+          <p style="font-size:0.875rem;color:var(--muted);">We use lightweight, privacy-respecting analytics to understand site traffic and improve the experience.</p>
+        </div>
+        <div style="padding:1rem 1.25rem;border:1px solid var(--border);border-radius:0.875rem;background:var(--surface);">
+          <h3 style="font-size:0.95rem;margin-bottom:0.4rem;">Contact</h3>
+          <p style="font-size:0.875rem;color:var(--muted);">For privacy questions, email <a href="mailto:social@etherhall.com">social@etherhall.com</a>.</p>
+        </div>
       </div>
     </div>
-  </footer>
-  <script data-cfasync="false" src="/cdn-cgi/script
+  </div>
+</section>
+
+<div class="kofi-wrap">
+  <a href="https://ko-fi.com/etherhall" target="_blank" rel="noopener" class="kofi-btn">
+    ☕ Support EtherHall on Ko-fi
+  </a>
+</div>
+<footer>
+  <div class="footer-inner">
+    <span>© <span class="year"></span> EtherHall LLC. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var t=localStorage.getItem('eh-theme')||'dark';
+  document.documentElement.setAttribute('data-theme',t);
+})();
+window.toggleTheme=function(){
+  var c=document.documentElement.getAttribute('data-theme');
+  var n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  localStorage.setItem('eh-theme',n);
+};
+document.addEventListener('DOMContentLoaded',function(){
+  // Hamburger
+  var btn=document.getElementById('hamburger');
+  var menu=document.getElementById('mobile-menu');
+  if(btn&&menu){btn.addEventListener('click',function(){var o=btn.classList.toggle('open');menu.classList.toggle('open',o);});}
+  // Reveals
+  var els=document.querySelectorAll('.reveal');
+  if(window.IntersectionObserver){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+    },{threshold:0.08});
+    els.forEach(function(el){obs.observe(el);});
+  } else {els.forEach(function(el){el.classList.add('in');});}
+  // Icons + year
+  if(window.lucide)lucide.createIcons();
+  document.querySelectorAll('.year').forEach(function(el){el.textContent=new Date().getFullYear();});
+  document.querySelectorAll('.today').forEach(function(el){el.textContent=new Date().toLocaleDateString();});
+});
+
+// ── PAGE ORB SPHERE (inner pages) ──────────────────────────
+// ── DYSON SPHERE ANIMATION ───────────────────────────
+window.addEventListener('load', function() {
+  var canvas = document.getElementById('page-orb-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var W, H, cx, cy, R;
+  var t = 0;
+  var rotAngle = 0; // slow longitude rotation
+
+  // Systems
+  var innerArcs = [];  // purple lightning inside sphere
+  var poleArcs  = [];  // green discharge at poles
+  var surfArcs  = [];  // surface crackle
+  var arcTimer  = 0;
+
+  // Liquid blob config — each drifts on a Lissajous-ish path
+  var BLOBS = [
+    { fx:1.70, fy:2.30, px:0.00, py:0.00, amp:0.32, sz:0.72, spd:0.0055,  r:90,  g:20,  b:200, a:0.50 },
+    { fx:2.10, fy:1.40, px:1.57, py:0.80, amp:0.26, sz:0.65, spd:-0.0042, r:140, g:40,  b:230, a:0.45 },
+    { fx:1.30, fy:3.10, px:3.14, py:1.60, amp:0.22, sz:0.60, spd:0.0068,  r:70,  g:10,  b:175, a:0.40 },
+    { fx:2.80, fy:1.90, px:0.90, py:2.50, amp:0.18, sz:0.55, spd:-0.0058, r:170, g:70,  b:255, a:0.35 },
+    { fx:1.50, fy:2.70, px:2.20, py:0.40, amp:0.28, sz:0.50, spd:0.0048,  r:110, g:30,  b:210, a:0.38 },
+    { fx:3.20, fy:1.60, px:1.10, py:3.30, amp:0.15, sz:0.45, spd:-0.0035, r:200, g:120, b:255, a:0.28 },
+  ];
+
+  // Colors
+  var NEON   = {r:57,  g:255, b:136};
+  var PLASMA = {r:191, g:156, b:255};
+  var DEEP   = {r:130, g:60,  b:220};
+  var CYAN   = {r:0,   g:229, b:255};
+
+  function rgba(c, a) { return 'rgba('+c.r+','+c.g+','+c.b+','+a+')'; }
+
+  function resize() {
+    var hero = canvas.parentElement;
+    W = hero.offsetWidth;
+    H = hero.offsetHeight;
+    canvas.width  = W * DPR;
+    canvas.height = H * DPR;
+    canvas.style.width  = W + 'px';
+    canvas.style.height = H + 'px';
+    cx = (W * DPR) / 2;
+    cy = (H * DPR) / 2;
+    // Sphere radius: fill most of the hero, taller screens = bigger sphere
+    R  = Math.min(W, H) * DPR * 0.38;
+    // offset sphere to the right for inner pages
+    cx = W * DPR * 0.72;
+  }
+
+  // ── Recursive lightning ───────────────────────────
+  function boltPts(x1,y1,x2,y2,rough,depth) {
+    if(depth===0) return [[x1,y1],[x2,y2]];
+    var mx=(x1+x2)/2+(Math.random()-0.5)*rough;
+    var my=(y1+y2)/2+(Math.random()-0.5)*rough;
+    return boltPts(x1,y1,mx,my,rough/2,depth-1).concat(boltPts(mx,my,x2,y2,rough/2,depth-1));
+  }
+
+  function drawBolt(x1,y1,x2,y2,c,alpha,lw,rough,depth) {
+    var pts=boltPts(x1,y1,x2,y2,rough||20*DPR,depth||5);
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0],pts[0][1]);
+    for(var i=1;i<pts.length;i++) ctx.lineTo(pts[i][0],pts[i][1]);
+    ctx.strokeStyle=rgba(c,alpha);
+    ctx.lineWidth=lw||DPR;
+    ctx.shadowColor=rgba(c,0.6);
+    ctx.shadowBlur=8;
+    ctx.stroke();
+    ctx.shadowBlur=0;
+  }
+
+  // ── Sphere grid (matching reference image) ─────────
+  function drawSphereGrid() {
+    // Clipping to sphere for interior elements
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI*2);
+    ctx.clip();
+
+    // ── 1. Deep base fill ──────────────────────────────
+    ctx.fillStyle = 'rgba(8,0,28,1)';
+    ctx.fillRect(0, 0, W*DPR, H*DPR);
+
+    // ── 2. Liquid blobs — large soft radial gradients ──
+    // that slowly churn on Lissajous-like paths
+    ctx.globalCompositeOperation = 'screen';
+    BLOBS.forEach(function(b, i) {
+      var tt = t * b.spd;
+      var bx = cx + Math.sin(b.fx * tt + b.px) * R * b.amp;
+      var by = cy + Math.cos(b.fy * tt + b.py) * R * b.amp * 0.8;
+      // Slow breathe in size
+      var br = R * b.sz * (0.88 + 0.12 * Math.sin(tt * 2.3 + i));
+      var g  = ctx.createRadialGradient(bx, by, 0, bx, by, br);
+      g.addColorStop(0.0, 'rgba('+b.r+','+b.g+','+b.b+','+b.a+')');
+      g.addColorStop(0.45,'rgba('+b.r+','+b.g+','+b.b+','+(b.a*0.55)+')');
+      g.addColorStop(0.75,'rgba('+b.r+','+b.g+','+b.b+','+(b.a*0.18)+')');
+      g.addColorStop(1.0, 'transparent');
+      ctx.beginPath();
+      ctx.arc(bx, by, br, 0, Math.PI*2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+    ctx.globalCompositeOperation = 'source-over';
+
+    // ── 3. Surface tension shimmer — top-left caustic ──
+    var shimmerX = cx - R*0.25 + Math.sin(t*0.007)*R*0.18;
+    var shimmerY = cy - R*0.32 + Math.cos(t*0.009)*R*0.12;
+    var shim = ctx.createRadialGradient(shimmerX,shimmerY,0,shimmerX,shimmerY,R*0.38);
+    shim.addColorStop(0,   'rgba(230,185,255,0.18)');
+    shim.addColorStop(0.5, 'rgba(180,120,255,0.08)');
+    shim.addColorStop(1,   'transparent');
+    ctx.beginPath();
+    ctx.arc(shimmerX, shimmerY, R*0.38, 0, Math.PI*2);
+    ctx.fillStyle = shim;
+    ctx.fill();
+
+    // ── 4. Depth vignette — darker at bottom/edges ─────
+    var vign = ctx.createRadialGradient(cx, cy-R*0.05, R*0.5, cx, cy+R*0.1, R);
+    vign.addColorStop(0,   'transparent');
+    vign.addColorStop(0.7, 'rgba(0,0,10,0.25)');
+    vign.addColorStop(1.0, 'rgba(0,0,15,0.75)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI*2);
+    ctx.fillStyle = vign;
+    ctx.fill();
+
+    // ── 5. Interior purple lightning ─────────────────
+    if (t%5===0) {
+      var a1=Math.random()*Math.PI*2;
+      var r1=R*(0.15+Math.random()*0.55);
+      var a2=a1+(Math.random()-0.5)*1.5;
+      var r2=R*(0.15+Math.random()*0.55);
+      innerArcs.push({
+        x1:cx+Math.cos(a1)*r1, y1:cy+Math.sin(a1)*r1,
+        x2:cx+Math.cos(a2)*r2, y2:cy+Math.sin(a2)*r2,
+        life:1, decay:0.06+Math.random()*0.06,
+        c: Math.random()>0.5 ? PLASMA : DEEP,
+      });
+    }
+    innerArcs = innerArcs.filter(function(a){return a.life>0;});
+    innerArcs.forEach(function(a) {
+      drawBolt(a.x1,a.y1,a.x2,a.y2, a.c, a.life*0.75, 0.8*DPR, 18*DPR, 4);
+      a.life-=a.decay;
+    });
+
+    ctx.restore();
+
+    // ── Latitude lines (horizontal ellipses) ─────────
+    // The perspective squash factor — matches reference
+    var persq = 0.38;
+    var latLines = [-75,-60,-45,-30,-15,0,15,30,45,60,75];
+    latLines.forEach(function(lat) {
+      var rad  = lat*Math.PI/180;
+      var yOff = Math.sin(rad)*R;
+      var rw   = Math.cos(rad)*R;
+      var rh   = rw*persq;
+      if(rw<1) return;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy+yOff, rw, rh, 0, 0, Math.PI*2);
+      // Brighter near equator
+      var brightness = 0.18+0.45*Math.cos(rad);
+      ctx.strokeStyle = rgba(NEON, brightness);
+      ctx.lineWidth   = (0.9+brightness*0.8)*DPR;
+      ctx.shadowColor = rgba(NEON, brightness*0.7);
+      ctx.shadowBlur  = 4;
+      ctx.stroke();
+      ctx.shadowBlur  = 0;
+    });
+
+    // ── Longitude lines (vertical ellipses) ──────────
+    // Rotate with time for slow spin
+    var numLon = 12;
+    for (var i=0; i<numLon; i++) {
+      var lon = (i/numLon)*Math.PI + rotAngle;
+      var cosL = Math.cos(lon);
+      var sinL = Math.sin(lon);
+      var rw2  = Math.abs(cosL)*R;
+      // Brightness based on how "front-facing" this longitude is
+      var vis  = Math.abs(sinL);
+      if(rw2<1) continue;
+      ctx.beginPath();
+      // Vertical ellipse: width=rw2, height=R, no rotation
+      ctx.ellipse(cx, cy, rw2, R, 0, 0, Math.PI*2);
+      var brt = 0.12+vis*0.55;
+      ctx.strokeStyle = rgba(NEON, brt);
+      ctx.lineWidth   = (0.8+vis*0.7)*DPR;
+      ctx.shadowColor = rgba(NEON, brt*0.8);
+      ctx.shadowBlur  = vis>0.7 ? 6 : 3;
+      ctx.stroke();
+      ctx.shadowBlur  = 0;
+    }
+
+    // ── Main sphere outline ring ──────────────────────
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI*2);
+    ctx.strokeStyle = rgba(NEON, 0.90);
+    ctx.lineWidth   = 2.5*DPR;
+    ctx.shadowColor = rgba(NEON, 0.8);
+    ctx.shadowBlur  = 18;
+    ctx.stroke();
+    // Second pass: thick outer glow
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, Math.PI*2);
+    ctx.strokeStyle = rgba(NEON, 0.18);
+    ctx.lineWidth   = 14*DPR;
+    ctx.shadowBlur  = 0;
+    ctx.stroke();
+
+    // ── Pole convergence glow ─────────────────────────
+    var poleTop = {x:cx, y:cy-R};
+    var poleBot = {x:cx, y:cy+R};
+    [poleTop, poleBot].forEach(function(pole) {
+      var pg = ctx.createRadialGradient(pole.x, pole.y, 0, pole.x, pole.y, R*0.18);
+      pg.addColorStop(0,   rgba(NEON, 0.95));
+      pg.addColorStop(0.3, rgba(NEON, 0.4));
+      pg.addColorStop(1,  'transparent');
+      ctx.beginPath();
+      ctx.arc(pole.x, pole.y, R*0.18, 0, Math.PI*2);
+      ctx.fillStyle = pg;
+      ctx.fill();
+      // Bright dot at pole
+      ctx.beginPath();
+      ctx.arc(pole.x, pole.y, 4*DPR, 0, Math.PI*2);
+      ctx.fillStyle = '#ffffff';
+      ctx.shadowColor = rgba(NEON, 1);
+      ctx.shadowBlur  = 12;
+      ctx.fill();
+      ctx.shadowBlur  = 0;
+    });
+  }
+
+  // ── Pole lightning discharge (shooting out) ────────
+  function drawPoleDischarge() {
+    // Spawn pole arcs
+    arcTimer++;
+    if (arcTimer%4===0) {
+      // Top pole — shoot upward
+      var spread=R*0.06;
+      poleArcs.push({
+        x1:cx+(Math.random()-0.5)*spread, y1:cy-R,
+        x2:cx+(Math.random()-0.5)*R*0.25, y2:cy-R-(R*0.25+Math.random()*R*0.45),
+        dir:'up', life:1, decay:0.055+Math.random()*0.055,
+        c: Math.random()>0.3 ? NEON : CYAN,
+      });
+      // Bottom pole — shoot downward
+      poleArcs.push({
+        x1:cx+(Math.random()-0.5)*spread, y1:cy+R,
+        x2:cx+(Math.random()-0.5)*R*0.25, y2:cy+R+(R*0.25+Math.random()*R*0.45),
+        dir:'down', life:1, decay:0.055+Math.random()*0.055,
+        c: Math.random()>0.3 ? NEON : CYAN,
+      });
+    }
+    // Occasional BIG discharge
+    if (arcTimer%30===0) {
+      poleArcs.push({
+        x1:cx, y1:cy-R,
+        x2:cx+(Math.random()-0.5)*R*0.3, y2:cy-R-R*0.7,
+        life:1, decay:0.04, c:NEON,
+      });
+      poleArcs.push({
+        x1:cx, y1:cy+R,
+        x2:cx+(Math.random()-0.5)*R*0.3, y2:cy+R+R*0.7,
+        life:1, decay:0.04, c:NEON,
+      });
+    }
+
+    poleArcs = poleArcs.filter(function(a){return a.life>0;});
+    poleArcs.forEach(function(a) {
+      drawBolt(a.x1,a.y1,a.x2,a.y2, a.c, a.life*0.9, 1.2*DPR, 15*DPR, 5);
+      // Soft thick glow pass
+      drawBolt(a.x1,a.y1,a.x2,a.y2, a.c, a.life*0.2, 4*DPR, 15*DPR, 3);
+      a.life-=a.decay;
+    });
+
+    // Surface crackle (along the rim)
+    if(t%6===0) {
+      var ang1=Math.random()*Math.PI*2;
+      var ang2=ang1+(Math.random()-0.5)*0.6;
+      surfArcs.push({
+        x1:cx+Math.cos(ang1)*R, y1:cy+Math.sin(ang1)*R,
+        x2:cx+Math.cos(ang2)*R*0.94, y2:cy+Math.sin(ang2)*R*0.94,
+        life:1, decay:0.1+Math.random()*0.1, c:NEON,
+      });
+    }
+    surfArcs=surfArcs.filter(function(a){return a.life>0;});
+    surfArcs.forEach(function(a){
+      drawBolt(a.x1,a.y1,a.x2,a.y2,a.c,a.life*0.7,0.8*DPR,8*DPR,4);
+      a.life-=a.decay;
+    });
+  }
+
+  // ── EtherHall text on canvas ───────────────────────
+  function drawText() {
+    ctx.save();
+    var fontSize = Math.round(R * 0.195);
+    ctx.font = 'bold ' + fontSize + 'px Georgia, "Times New Roman", serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Outer glow passes
+    ctx.shadowColor = rgba(NEON, 0.35);
+    ctx.shadowBlur  = R * 0.15;
+    ctx.strokeStyle = rgba(NEON, 0.55);
+    ctx.lineWidth   = 2.5 * DPR;
+    ctx.strokeText('EtherHall', cx, cy);
+
+    // White stroke outline
+    ctx.shadowColor = 'rgba(255,255,255,0.5)';
+    ctx.shadowBlur  = 4;
+    ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+    ctx.lineWidth   = 1.5 * DPR;
+    ctx.strokeText('EtherHall', cx, cy);
+
+    // Purple-to-white gradient fill
+    var grd = ctx.createLinearGradient(cx-R*0.5, cy-fontSize*0.6, cx+R*0.5, cy+fontSize*0.6);
+    grd.addColorStop(0.0, 'rgba(220,180,255,1.0)');
+    grd.addColorStop(0.35,'rgba(191,156,255,1.0)');
+    grd.addColorStop(0.65,'rgba(168,100,255,1.0)');
+    grd.addColorStop(1.0, 'rgba(140,60,220,1.0)');
+    ctx.shadowColor = rgba(PLASMA, 0.7);
+    ctx.shadowBlur  = R * 0.08;
+    ctx.fillStyle   = grd;
+    ctx.fillText('EtherHall', cx, cy);
+    ctx.restore();
+  }
+
+  // ── Ambient outer glow ─────────────────────────────
+  function drawOuterGlow() {
+    var og = ctx.createRadialGradient(cx, cy, R*0.9, cx, cy, R*1.7);
+    og.addColorStop(0,   rgba(NEON,   0.12));
+    og.addColorStop(0.4, rgba(NEON,   0.04));
+    og.addColorStop(0.8, rgba(PLASMA, 0.02));
+    og.addColorStop(1.0, 'transparent');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R*1.7, 0, Math.PI*2);
+    ctx.fillStyle = og;
+    ctx.fill();
+  }
+
+  // ── Main render loop ───────────────────────────────
+  function draw() {
+    ctx.clearRect(0, 0, W*DPR, H*DPR);
+
+    // Very dark deep-space background
+    ctx.fillStyle = '#02040a';
+    ctx.fillRect(0, 0, W*DPR, H*DPR);
+
+    // Subtle ambient behind sphere
+    var space = ctx.createRadialGradient(cx, cy, 0, cx, cy, R*2.2);
+    space.addColorStop(0,   'rgba(10,2,30,0.7)');
+    space.addColorStop(0.5, 'rgba(0,10,5,0.3)');
+    space.addColorStop(1,   'transparent');
+    ctx.fillStyle = space;
+    ctx.fillRect(0, 0, W*DPR, H*DPR);
+
+    drawOuterGlow();
+    drawSphereGrid();
+    drawText();
+    drawPoleDischarge();
+
+    rotAngle += 0.0015; // slow rotation
+    t++;
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize', function() { resize(); });
+  draw();
+});
+</script>
+</body>
+</html>
