@@ -4,10 +4,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>About — EtherHall</title>
-<meta name="description" content="About EtherHall — building local-first AI for people and organizations that need privacy."/>
+<meta name="description" content="EtherHall — built after dark, tested in real life. The story behind AION and what we're building next."/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -36,8 +35,6 @@ a:hover{text-decoration:underline}
 h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.08;letter-spacing:-0.02em}
 strong{font-weight:600}
 img{max-width:100%;height:auto;display:block}
-
-/* ── Ambient bg ── */
 .ambient{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
@@ -47,8 +44,6 @@ img{max-width:100%;height:auto;display:block}
 }
 [data-theme="light"] .ambient{opacity:0.4}
 .site-wrap{position:relative;z-index:1}
-
-/* ── NAV ── */
 nav{
   position:sticky;top:0;z-index:200;
   background:rgba(2,4,10,0.88);backdrop-filter:blur(20px);
@@ -67,10 +62,7 @@ nav{
   flex-shrink:0;
 }
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{
-  font-size:0.875rem;font-weight:400;color:var(--muted);
-  text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;
-}
+.nav-links a{font-size:0.875rem;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--text)}
 .nav-links a.active{font-weight:600}
 .nav-actions{display:flex;align-items:center;gap:0.6rem}
@@ -81,7 +73,7 @@ nav{
   transition:all 0.2s;flex-shrink:0;
 }
 .theme-btn:hover{border-color:var(--border-h);color:var(--text);background:var(--surface-h)}
-[data-theme="dark"]  .icon-sun{display:none}
+[data-theme="dark"] .icon-sun{display:none}
 [data-theme="light"] .icon-moon{display:none}
 .nav-discord{
   display:inline-flex;align-items:center;gap:0.4rem;
@@ -95,248 +87,90 @@ nav{
   background:var(--surface);border:1px solid var(--border);border-radius:8px;
   cursor:pointer;padding:0.4rem 0.5rem;width:36px;height:32px;
 }
-.hamburger span{
-  display:block;width:18px;height:1.5px;background:var(--muted);border-radius:1px;
-  transition:transform 0.3s,opacity 0.3s;transform-origin:center;
-}
+.hamburger span{display:block;width:18px;height:1.5px;background:var(--muted);border-radius:1px;transition:transform 0.3s,opacity 0.3s;transform-origin:center;}
 .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);background:var(--text)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);background:var(--text)}
-.mobile-menu{
-  overflow:hidden;max-height:0;transition:max-height 0.38s ease;
-  background:rgba(2,4,10,0.98);border-top:0 solid var(--border);
-}
+.mobile-menu{overflow:hidden;max-height:0;transition:max-height 0.38s ease;background:rgba(2,4,10,0.98);border-top:0 solid var(--border);}
 .mobile-menu.open{max-height:500px;border-top-width:1px}
-.mobile-menu-inner{
-  max-width:1200px;margin:0 auto;padding:0.75rem 2rem 1.5rem;
-  display:flex;flex-direction:column;
-}
-.mobile-menu-inner a{
-  font-size:1rem;color:var(--muted);text-decoration:none;
-  padding:0.65rem 0;border-bottom:1px solid var(--border);
-  display:block;transition:color 0.2s;
-}
+.mobile-menu-inner{max-width:1200px;margin:0 auto;padding:0.75rem 2rem 1.5rem;display:flex;flex-direction:column;}
+.mobile-menu-inner a{font-size:1rem;color:var(--muted);text-decoration:none;padding:0.65rem 0;border-bottom:1px solid var(--border);display:block;transition:color 0.2s;}
 .mobile-menu-inner a:last-child{border-bottom:none}
 .mobile-menu-inner a:hover,.mobile-menu-inner a.active{color:var(--text)}
-.mobile-disc{
-  display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.875rem;
-  background:rgba(88,101,242,0.12);border:1px solid rgba(88,101,242,0.28);
-  color:#8b9dff!important;padding:0.6rem 1rem;border-radius:10px;
-  font-weight:600;font-size:0.875rem;text-decoration:none!important;
-}
-@media(max-width:767px){
-  .nav-links,.nav-discord{display:none}
-  .hamburger{display:flex}
-}
-
-/* ── Page hero ── */
-.page-hero{
-  position:relative;z-index:1;
-  min-height:52vh;
-  display:flex;align-items:center;
-  border-bottom:1px solid var(--border);
-  overflow:hidden;
-}
-#page-orb-canvas{
-  position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
-}
+.mobile-disc{display:inline-flex;align-items:center;gap:0.5rem;margin-top:0.875rem;background:rgba(88,101,242,0.12);border:1px solid rgba(88,101,242,0.28);color:#8b9dff!important;padding:0.6rem 1rem;border-radius:10px;font-weight:600;font-size:0.875rem;text-decoration:none!important;}
+@media(max-width:767px){.nav-links,.nav-discord{display:none}.hamburger{display:flex}}
+.page-hero{position:relative;z-index:1;min-height:52vh;display:flex;align-items:center;border-bottom:1px solid var(--border);overflow:hidden;}
+#page-orb-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .page-hero-overlay{
   position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    linear-gradient(90deg,rgba(2,4,10,0.92) 0%,rgba(2,4,10,0.75) 40%,rgba(2,4,10,0.3) 75%,transparent 100%),
-    linear-gradient(to top,rgba(2,4,10,0.8) 0%,transparent 40%),
-    linear-gradient(to bottom,rgba(2,4,10,0.5) 0%,transparent 30%);
+  background:linear-gradient(90deg,rgba(2,4,10,0.92) 0%,rgba(2,4,10,0.75) 40%,rgba(2,4,10,0.3) 75%,transparent 100%),linear-gradient(to top,rgba(2,4,10,0.8) 0%,transparent 40%),linear-gradient(to bottom,rgba(2,4,10,0.5) 0%,transparent 30%);
 }
-.page-hero-inner{
-  max-width:1200px;margin:0 auto;position:relative;z-index:2;
-  padding:5rem 2rem 4rem;width:100%;
-}
-[data-theme="light"] .page-hero-overlay{
-  background:
-    linear-gradient(90deg,rgba(240,244,248,0.96) 0%,rgba(240,244,248,0.85) 45%,rgba(240,244,248,0.5) 70%,transparent 100%),
-    linear-gradient(to top,rgba(240,244,248,0.9) 0%,transparent 40%);
-}
-.page-label{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  border:1px solid rgba(57,255,136,0.22);background:rgba(57,255,136,0.06);
-  padding:0.28rem 0.85rem;border-radius:99px;
-  font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--neon);margin-bottom:1.5rem;
-  opacity:0;animation:rise 0.6s ease 0.15s forwards;
-}
-.page-title{
-  font-size:clamp(2.2rem,5vw,4rem);font-weight:800;
-  line-height:1.0;
-  opacity:0;animation:rise 0.7s ease 0.3s forwards;
-}
-.grad{
-  background:linear-gradient(120deg,var(--neon) 0%,var(--cyan) 45%,var(--haze) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.page-sub{
-  margin-top:1rem;font-size:1.05rem;font-weight:300;
-  color:var(--muted);max-width:540px;line-height:1.78;
-  opacity:0;animation:rise 0.6s ease 0.45s forwards;
-}
-
-/* ── Reveal ── */
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;padding:5rem 2rem 4rem;width:100%;}
+[data-theme="light"] .page-hero-overlay{background:linear-gradient(90deg,rgba(240,244,248,0.96) 0%,rgba(240,244,248,0.85) 45%,rgba(240,244,248,0.5) 70%,transparent 100%),linear-gradient(to top,rgba(240,244,248,0.9) 0%,transparent 40%);}
+.page-label{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid rgba(57,255,136,0.22);background:rgba(57,255,136,0.06);padding:0.28rem 0.85rem;border-radius:99px;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--neon);margin-bottom:1.5rem;opacity:0;animation:rise 0.6s ease 0.15s forwards;}
+.page-title{font-size:clamp(2.2rem,5vw,4rem);font-weight:800;line-height:1.0;opacity:0;animation:rise 0.7s ease 0.3s forwards;}
+.grad{background:linear-gradient(120deg,var(--neon) 0%,var(--cyan) 45%,var(--haze) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{margin-top:1rem;font-size:1.05rem;font-weight:300;color:var(--muted);max-width:540px;line-height:1.78;opacity:0;animation:rise 0.6s ease 0.45s forwards;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
-.reveal.d1{transition-delay:0.10s}.reveal.d2{transition-delay:0.20s}
-.reveal.d3{transition-delay:0.30s}.reveal.d4{transition-delay:0.40s}
-
-/* ── Cards ── */
-.card{
-  border:1px solid var(--border);border-radius:1.25rem;
-  padding:1.75rem;background:var(--surface);
-  transition:border-color 0.25s,background 0.25s,transform 0.25s;
-  position:relative;overflow:hidden;
-}
-.card::after{
-  content:'';position:absolute;inset:0;border-radius:inherit;
-  background:radial-gradient(circle at 70% 0%,rgba(57,255,136,0.08),transparent 60%);
-  opacity:0;transition:opacity 0.3s;
-}
+.reveal.d1{transition-delay:0.10s}.reveal.d2{transition-delay:0.20s}.reveal.d3{transition-delay:0.30s}.reveal.d4{transition-delay:0.40s}
+.card{border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;background:var(--surface);transition:border-color 0.25s,background 0.25s,transform 0.25s;position:relative;overflow:hidden;}
+.card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 70% 0%,rgba(57,255,136,0.08),transparent 60%);opacity:0;transition:opacity 0.3s;}
 .card:hover{border-color:rgba(57,255,136,0.28);background:var(--surface-h);transform:translateY(-3px)}
 .card:hover::after{opacity:1}
-.card-lg{
-  border:1px solid var(--border);border-radius:1.5rem;
-  padding:2.25rem;background:var(--surface);
-  transition:border-color 0.2s;
-}
+.card-lg{border:1px solid var(--border);border-radius:1.5rem;padding:2.25rem;background:var(--surface);transition:border-color 0.2s;}
 .card-lg:hover{border-color:var(--border-h)}
-.card-icon{
-  width:42px;height:42px;border-radius:10px;margin-bottom:1.25rem;
-  background:rgba(57,255,136,0.08);border:1px solid rgba(57,255,136,0.18);
-  display:flex;align-items:center;justify-content:center;color:var(--neon);
-}
+.card-icon{width:42px;height:42px;border-radius:10px;margin-bottom:1.25rem;background:rgba(57,255,136,0.08);border:1px solid rgba(57,255,136,0.18);display:flex;align-items:center;justify-content:center;color:var(--neon);}
 .card h3{font-size:1.05rem;font-weight:700;margin-bottom:0.6rem}
 .card p{font-size:0.875rem;color:var(--muted);line-height:1.72}
-
-/* ── Buttons ── */
-.btn{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;
-  letter-spacing:0.02em;padding:0.8rem 1.75rem;border-radius:10px;
-  text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;
-}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;letter-spacing:0.02em;padding:0.8rem 1.75rem;border-radius:10px;text-decoration:none;transition:all 0.22s;border:none;cursor:pointer;}
 .btn:hover{text-decoration:none}
 .btn-neon{background:var(--neon);color:#000}
 .btn-neon:hover{opacity:0.86;box-shadow:var(--neon-glow)}
 .btn-ghost{border:1px solid var(--border);background:var(--surface);color:var(--text)!important}
 .btn-ghost:hover{border-color:var(--border-h);background:var(--surface-h)}
-.btn-haze{background:rgba(191,156,255,0.12);color:var(--haze)!important;border:1px solid rgba(191,156,255,0.28)}
-.btn-haze:hover{background:rgba(191,156,255,0.22)}
-
-/* ── Sections ── */
-.section{
-  position:relative;z-index:1;
-  border-top:1px solid var(--border);padding:5.5rem 2rem;
-}
+.section{position:relative;z-index:1;border-top:1px solid var(--border);padding:5.5rem 2rem;}
 .section-inner{max-width:1200px;margin:0 auto}
-.section-label{
-  font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--dim);margin-bottom:1rem;
-  display:flex;align-items:center;gap:0.5rem;
-}
+.section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
 .section-label::before{content:'';width:20px;height:1px;background:var(--neon)}
-.section-title{
-  font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;
-  line-height:1.08;max-width:500px;margin-bottom:3rem;
-}
-
-/* ── Grids ── */
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.08;max-width:500px;margin-bottom:3rem;}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}}
-@media(max-width:580px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
-
-/* ── Ko-fi ── */
-.kofi-wrap{
-  position:relative;z-index:1;border-top:1px solid var(--border);
-  padding:2rem;display:flex;justify-content:center;
-}
-.kofi-btn{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  border:1px solid var(--border);background:var(--surface);
-  color:var(--muted)!important;padding:0.65rem 1.5rem;border-radius:10px;
-  font-size:0.875rem;text-decoration:none!important;transition:all 0.2s;
-}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.kofi-wrap{position:relative;z-index:1;border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:center;}
+.kofi-btn{display:inline-flex;align-items:center;gap:0.5rem;border:1px solid var(--border);background:var(--surface);color:var(--muted)!important;padding:0.65rem 1.5rem;border-radius:10px;font-size:0.875rem;text-decoration:none!important;transition:all 0.2s;}
 .kofi-btn:hover{border-color:var(--border-h);background:var(--surface-h);color:var(--text)!important}
-
-/* ── Footer ── */
-footer{
-  position:relative;z-index:1;border-top:1px solid var(--border);
-  padding:2.5rem 2rem;font-size:0.83rem;color:var(--dim);
-}
-.footer-inner{
-  max-width:1200px;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
-}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2.5rem 2rem;font-size:0.83rem;color:var(--dim);}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 .footer-links{display:flex;gap:1.5rem}
 .footer-links a{color:var(--dim);text-decoration:none;transition:color 0.15s}
 .footer-links a:hover{color:var(--text)}
-
-/* ── Utils ── */
 .pw{max-width:1200px;margin:0 auto;padding:0 2rem}
-.pwm{max-width:52rem;margin:0 auto;padding:0 2rem}
-.flex-gap{display:flex;flex-wrap:wrap;align-items:center;gap:0.875rem}
-.status-badge{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  border:1px solid var(--border);background:var(--surface);
-  padding:0.3rem 0.9rem;border-radius:99px;font-size:0.78rem;color:var(--muted);
-}
-.pulse{
-  width:6px;height:6px;border-radius:50%;background:var(--neon);
-  animation:pulse-dot 2s ease-in-out infinite;
-}
-@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(57,255,136,0.5)}50%{box-shadow:0 0 0 5px rgba(57,255,136,0)}}
+/* Roadmap timeline */
+.roadmap-list{display:flex;flex-direction:column;gap:1rem;max-width:800px;}
+.rm-item{display:flex;gap:1.25rem;align-items:flex-start;padding:1.25rem 1.5rem;border:1px solid var(--border);border-radius:1rem;background:var(--surface);transition:border-color 0.2s;}
+.rm-item:hover{border-color:var(--border-h)}
+.rm-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:0.45rem;}
+.rm-dot.shipped{background:var(--neon);box-shadow:0 0 8px rgba(57,255,136,0.5);}
+.rm-dot.active{background:var(--cyan);box-shadow:0 0 8px rgba(0,229,255,0.4);}
+.rm-dot.soon{background:var(--haze);box-shadow:0 0 8px rgba(191,156,255,0.3);}
+.rm-dot.future{background:var(--dim);border:1px solid var(--border-h);}
+.rm-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.25rem;}
+.rm-label.shipped{color:var(--neon)}
+.rm-label.active{color:var(--cyan)}
+.rm-label.soon{color:var(--haze)}
+.rm-label.future{color:var(--dim)}
+.rm-title{font-size:0.95rem;font-weight:600;margin-bottom:0.2rem;}
+.rm-desc{font-size:0.82rem;color:var(--muted);}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-
-/* Screenshot card */
-.shot-card{
-  border:1px solid var(--border);border-radius:1.5rem;padding:0.5rem;
-  background:rgba(6,9,15,0.70);
-  box-shadow:0 24px 80px rgba(0,0,0,0.5);position:relative;
-}
-.shot-card::before{
-  content:'';position:absolute;inset:-1px;border-radius:1.5rem;
-  background:linear-gradient(135deg,rgba(191,156,255,0.18),rgba(57,255,136,0.06),transparent 60%);
-  z-index:-1;
-}
-.shot-bar{
-  display:flex;align-items:center;gap:0.4rem;padding:0.5rem 0.75rem;
-  background:rgba(255,255,255,0.04);border-radius:1.1rem 1.1rem 0 0;
-}
-.shot-dot{width:10px;height:10px;border-radius:50%}
-.shot-bar .shot-label{margin-left:auto;font-size:0.72rem;color:var(--dim)}
-.shot-card img{border-radius:0.9rem;cursor:zoom-in}
-[data-theme="light"] .shot-card{background:rgba(255,255,255,0.7)}
-
-/* Marquee */
-.marquee-strip{
-  position:relative;z-index:1;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  background:rgba(2,4,10,0.9);overflow:hidden;padding:0.875rem 0;
-}
-.marquee-track{display:flex;gap:3.5rem;animation:marquee 26s linear infinite;white-space:nowrap}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.m-item{display:inline-flex;align-items:center;gap:0.75rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);flex-shrink:0}
-.m-dot{width:4px;height:4px;border-radius:50%;background:var(--neon);flex-shrink:0}
-
-/* Responsive nav */
-@media(max-width:600px){
-  .page-hero{padding:3.5rem 1.25rem 3rem}
-  .section{padding:4rem 1.25rem}
-  .pw,.pwm{padding:0 1.25rem}
-  .nav-inner{padding:0 1.25rem}
-}
+@media(max-width:600px){.page-hero{padding:3.5rem 1.25rem 3rem}.section{padding:4rem 1.25rem}.pw{padding:0 1.25rem}.nav-inner{padding:0 1.25rem}}
 </style>
 </head>
 <body>
 <div class="ambient"></div>
 <div class="site-wrap">
+
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">EtherHall</a>
@@ -374,62 +208,61 @@ footer{
   <div class="page-hero-overlay"></div>
   <div class="page-hero-inner pw">
     <div class="page-label">EtherHall</div>
-    <h1 class="page-title" style="max-width:680px;">Built after dark.<br><span class="grad">Tested in real life.</span></h1>
+    <h1 class="page-title">Built after dark.<br><span class="grad">Tested in real life.</span></h1>
     <p class="page-sub">One person. A salaried retail job. Midnight hours. A simple intent: make powerful, private AI useful for everyday people.</p>
   </div>
 </section>
 
+<!-- MISSION -->
 <section class="section">
   <div class="section-inner">
-    <div class="grid-2" style="gap:2rem;">
-      <div class="card-lg reveal">
-        <p class="section-label" style="margin-bottom:0.75rem;">Our Mission</p>
-        <p style="color:var(--muted);font-size:1rem;line-height:1.82;">
-          EtherHall builds local-first AI systems for people and organizations that cannot rely on the cloud — due to privacy, legal, or operational constraints. We believe in empowering individuals and businesses with AI that runs on their own hardware and keeps their data private.
-        </p>
+    <div class="section-label">Our Mission</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;" class="reveal">
+      <div>
+        <h2 class="section-title" style="max-width:100%;margin-bottom:1.5rem;">Private AI that runs on your machine.</h2>
+        <p style="color:var(--muted);line-height:1.84;">EtherHall builds local-first AI for people and organizations that cannot rely on the cloud — due to privacy, legal, or operational constraints. Your data stays with you. The AI grows with you.</p>
       </div>
-      <div class="card-lg reveal d1">
-        <p class="section-label" style="margin-bottom:0.75rem;">How it started</p>
-        <p style="color:var(--muted);font-size:1rem;line-height:1.82;">
-          AION was born from a simple observation: powerful AI should not require a monthly payment to a cloud provider. It should run on your machine, know your context, and grow with you. What started as a midnight project became a working system — and a company.
-        </p>
+      <div>
+        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);">How it started</h3>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.84;">AION was born from a simple observation: powerful AI should not require a monthly payment to a cloud provider. It should run on your machine, know your context, and grow with you. What started as a midnight project became a working system — and a company.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PRINCIPLES -->
 <section class="section">
   <div class="section-inner">
-    <p class="section-label reveal">What drives us</p>
-    <h2 class="section-title reveal">Principles, not features</h2>
+    <div class="section-label">What drives us</div>
+    <h2 class="section-title">Principles, not features.</h2>
     <div class="grid-3">
-      <div class="card reveal d1">
-        <div class="card-icon"><i data-lucide="key" style="width:18px;height:18px"></i></div>
+      <div class="card reveal">
+        <div class="card-icon"><i data-lucide="user-check" style="width:20px;height:20px;"></i></div>
         <h3>Ownership</h3>
         <p>Your data and tools belong to you. Not a company. Not a cloud provider. You.</p>
       </div>
-      <div class="card reveal d2">
-        <div class="card-icon"><i data-lucide="minimize-2" style="width:18px;height:18px"></i></div>
+      <div class="card reveal d1">
+        <div class="card-icon"><i data-lucide="zap" style="width:20px;height:20px;"></i></div>
         <h3>Simplicity</h3>
         <p>Fewer knobs, more results. Power should not require a PhD to access.</p>
       </div>
-      <div class="card reveal d3">
-        <div class="card-icon"><i data-lucide="eye" style="width:18px;height:18px"></i></div>
+      <div class="card reveal d2">
+        <div class="card-icon"><i data-lucide="eye" style="width:20px;height:20px;"></i></div>
         <h3>Transparency</h3>
         <p>Clear behavior. No mystery calls home. You can see what AION is doing and why.</p>
       </div>
       <div class="card reveal d1">
-        <div class="card-icon"><i data-lucide="users" style="width:18px;height:18px"></i></div>
+        <div class="card-icon"><i data-lucide="users" style="width:20px;height:20px;"></i></div>
         <h3>Community-first</h3>
         <p>AION grows step by step with its community. Your usage and feedback shape what ships.</p>
       </div>
       <div class="card reveal d2">
-        <div class="card-icon"><i data-lucide="hard-drive" style="width:18px;height:18px"></i></div>
+        <div class="card-icon"><i data-lucide="server" style="width:20px;height:20px;"></i></div>
         <h3>Local-first</h3>
         <p>Runs on your machine. Data stays with you. Network features are opt-in and transparent.</p>
       </div>
       <div class="card reveal d3">
-        <div class="card-icon"><i data-lucide="trending-up" style="width:18px;height:18px"></i></div>
+        <div class="card-icon"><i data-lucide="trending-up" style="width:20px;height:20px;"></i></div>
         <h3>Built to grow</h3>
         <p>From one workstation to every household that wants it — without compromising what makes it special.</p>
       </div>
@@ -437,16 +270,85 @@ footer{
   </div>
 </section>
 
-<section class="section">
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
   <div class="section-inner">
-    <div class="card-lg reveal" style="text-align:center;padding:3rem;background:rgba(57,255,136,0.03);border-color:rgba(57,255,136,0.18);">
-      <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem;">Get involved</p>
-      <h2 style="font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;margin-bottom:1rem;">Press, partnerships, or pilots</h2>
-      <p style="color:var(--muted);max-width:400px;margin:0 auto 2rem;">We work with individuals and organizations that share our belief in private, local-first AI.</p>
-      <div class="flex-gap" style="justify-content:center;">
-        <a href="mailto:social@etherhall.com" class="btn btn-neon">social@etherhall.com</a>
-        <a href="https://discord.gg/4EdaYwfS" target="_blank" class="btn btn-ghost">Join Discord</a>
+    <div class="section-label">Roadmap</div>
+    <h2 class="section-title">Where we are.<br>Where we're going.</h2>
+    <div class="roadmap-list">
+
+      <div class="rm-item reveal">
+        <div class="rm-dot shipped"></div>
+        <div>
+          <div class="rm-label shipped">Shipped — Alpha</div>
+          <div class="rm-title">Core AION pipeline</div>
+          <div class="rm-desc">Three-layer architecture live. AION planner, SYSTEM executor, local state layer. Memory, diary, identity — all running on your hardware with no cloud dependency.</div>
+        </div>
       </div>
+
+      <div class="rm-item reveal d1">
+        <div class="rm-dot shipped"></div>
+        <div>
+          <div class="rm-label shipped">Shipped — Alpha</div>
+          <div class="rm-title">Chat mode &amp; trace viewer</div>
+          <div class="rm-desc">Conversational fast path wired. Full pipeline trace viewer for inspecting every call, token count, and model response in real time.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d2">
+        <div class="rm-dot shipped"></div>
+        <div>
+          <div class="rm-label shipped">Shipped — Alpha</div>
+          <div class="rm-title">Windows installer &amp; onboarding</div>
+          <div class="rm-desc">One-click installer for Windows. Guided onboarding flow sets up your AI's identity, memory, and provider on first run.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d1">
+        <div class="rm-dot active"></div>
+        <div>
+          <div class="rm-label active">In Progress</div>
+          <div class="rm-title">Stability hardening &amp; provider validation</div>
+          <div class="rm-desc">Fixing known blockers before public release — memory leak on Ollama path, runtime provider health checks, and Windows wheelhouse coverage for offline installs.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d2">
+        <div class="rm-dot soon"></div>
+        <div>
+          <div class="rm-label soon">Coming Soon</div>
+          <div class="rm-title">Public release &amp; open beta</div>
+          <div class="rm-desc">Windows installer available for download. Invite-only alpha transitions to open beta. Community feedback shapes what ships next.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d3">
+        <div class="rm-dot soon"></div>
+        <div>
+          <div class="rm-label soon">Coming Soon</div>
+          <div class="rm-title">The Forge — portable AI drive</div>
+          <div class="rm-desc">Your AION identity and memory on a USB drive. Plug into any machine, run permanently or temporarily, unplug and take your AI with you.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d1">
+        <div class="rm-dot future"></div>
+        <div>
+          <div class="rm-label future">Planned</div>
+          <div class="rm-title">Autonomous task execution</div>
+          <div class="rm-desc">AION moves from advisor to executor — running multi-step tasks with your approval at each decision point.</div>
+        </div>
+      </div>
+
+      <div class="rm-item reveal d2">
+        <div class="rm-dot future"></div>
+        <div>
+          <div class="rm-label future">Planned</div>
+          <div class="rm-title">Voice &amp; Linux support</div>
+          <div class="rm-desc">TTS voice output and a Linux AppImage for users who want AION outside of Windows.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -466,9 +368,9 @@ footer{
     </div>
   </div>
 </footer>
-</div>
 
-<script>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   var t=localStorage.getItem('eh-theme')||'dark';
   document.documentElement.setAttribute('data-theme',t);
@@ -855,18 +757,16 @@ window.addEventListener('load', function() {
     ctx.fillRect(0, 0, W*DPR, H*DPR);
 
     drawOuterGlow();
-    drawSphereGrid();
+    drawSphereGrid();    drawPoleDischarge();
     drawText();
-    drawPoleDischarge();
-
-    rotAngle += 0.0015; // slow rotation
+    rotAngle += 0.0015;
     t++;
     requestAnimationFrame(draw);
   }
 
   resize();
-  window.addEventListener('resize', function() { resize(); });
-  draw();
+  window.addEventListener('resize', resize);
+  requestAnimationFrame(draw);
 });
 </script>
 </body>
